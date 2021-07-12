@@ -106,3 +106,6 @@ F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\IT-COVID-19-Vaccination-Syst
 F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\IT-COVID-19-Vaccination-System\COVID-19 Vaccination System\COVID-19 Vaccination System\obj\Debug\COVID-19 Vaccination System.csproj.CopyComplete
 F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\IT-COVID-19-Vaccination-System\COVID-19 Vaccination System\COVID-19 Vaccination System\obj\Debug\COVID-19 Vaccination System.dll
 F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\IT-COVID-19-Vaccination-System\COVID-19 Vaccination System\COVID-19 Vaccination System\obj\Debug\COVID-19 Vaccination System.pdb
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\IT-COVID-19-Vaccination-System\COVID-19 Vaccination System\COVID-19 Vaccination System\obj\Debug\COVID_19_Vaccination_System.Migrations.InitialCreate.resources
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\IT-COVID-19-Vaccination-System\COVID-19 Vaccination System\COVID-19 Vaccination System\obj\Debug\COVID-19 Vaccination System.csproj.GenerateResource.cache
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\IT-COVID-19-Vaccination-System\COVID-19 Vaccination System\COVID-19 Vaccination System\obj\Debug\COVID_19_Vaccination_System.Migrations.UserDetails.resources
