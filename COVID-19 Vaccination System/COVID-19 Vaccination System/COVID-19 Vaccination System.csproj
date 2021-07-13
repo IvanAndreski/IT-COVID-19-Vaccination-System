@@ -181,6 +181,10 @@
     <Compile Include="Migrations\202107121428084_UserDetails.Designer.cs">
       <DependentUpon>202107121428084_UserDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202107131304374_Number.cs" />
+    <Compile Include="Migrations\202107131304374_Number.Designer.cs">
+      <DependentUpon>202107131304374_Number.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppointmentModel.cs" />
@@ -271,6 +275,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202107121428084_UserDetails.resx">
       <DependentUpon>202107121428084_UserDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202107131304374_Number.resx">
+      <DependentUpon>202107131304374_Number.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

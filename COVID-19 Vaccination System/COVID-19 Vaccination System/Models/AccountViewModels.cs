@@ -82,15 +82,27 @@ namespace COVID_19_Vaccination_System.Models
         public string ConfirmPassword { get; set; }
 
         [Required]
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
+
         [Required]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
+
         [Required]
+        [Display(Name = "EMBG")]
+        [RegularExpression("^\\d{7}(450|455)\\d{3}", ErrorMessage = "Invalid EMBG")]
         public string EMBG { get; set; }
+
         [Required]
+        [Display(Name = "Date of Birth")]
+        [DataType(DataType.Date)]
         public DateTime DateOfBirth { get; set; }
+
         [Required]
-        public string PhoneNumber { get; set; }
+        [Display(Name = "Phone Number")]
+        [RegularExpression("^07[0-8]\\d{6}", ErrorMessage = "Phone number is not a valid Macedonian number")]
+        public string Number { get; set; }
     }
 
     public class ResetPasswordViewModel

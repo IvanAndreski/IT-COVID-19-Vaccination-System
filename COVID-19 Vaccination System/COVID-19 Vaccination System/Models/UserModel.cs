@@ -10,7 +10,6 @@ namespace COVID_19_Vaccination_System.Models {
         public string EMBG { get; set; }
         public DateTime DateOfBirth { get; set; }
         public string Email { get; set; }
-        public string PhoneNumber { get; set; }
         
     }
 }
