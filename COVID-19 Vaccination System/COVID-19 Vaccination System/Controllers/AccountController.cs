@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using COVID_19_Vaccination_System.Models;
+using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace COVID_19_Vaccination_System.Controllers
 {
@@ -132,6 +134,40 @@ namespace COVID_19_Vaccination_System.Controllers
                     ModelState.AddModelError("", "Invalid code.");
                     return View(model);
             }
+        }
+
+        //
+        // GET: /Account/EditUserRole
+        [Authorize(Roles = "Administrator")]
+        public ActionResult EditUserRole() {
+            var model = new EditUserRoleViewModel();
+            model.Roles = new List<string>() {
+                "Administrator",
+                "Doctor",
+                "User"
+            };
+
+            return View(model);
+        }
+
+        //
+        // POST: /Account/EditUserRole
+        [HttpPost]
+        [Authorize(Roles = "Administrator")]
+        public ActionResult EditUserRole(EditUserRoleViewModel model) {
+            var email = model.Email;
+            var user = UserManager.FindByEmail(email);
+
+            if(user == null) {
+                // TODO: Ova ne raboti, napravi custom not found page
+                throw new HttpException(404, string.Format("User with email: {0}, was not found!", email));
+            }
+
+            var roles = UserManager.GetRoles(user.Id);
+            UserManager.RemoveFromRoles(user.Id, roles.ToArray());
+            UserManager.AddToRole(user.Id, model.SelectedRole);
+
+            return RedirectToAction("Index", "Home");
         }
 
         //

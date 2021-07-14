@@ -1,0 +1,38 @@
+﻿@model COVID_19_Vaccination_System.Models.EditUserRoleViewModel
+@{
+    ViewBag.Title = "EditUserRole";
+}
+
+<h2>Променете улога на корисник според Email:</h2>
+
+@using (Html.BeginForm("EditUserRole", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" })) {
+    //@Html.AntiForgeryToken()
+    //@Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Roles, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(l => l.SelectedRole, new SelectList(Model.Roles))
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Confirm" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            @Html.ActionLink("Cancel", "Index", "Home", null, htmlAttributes: new { @class = "btn btn-default" })
+        </div>
+    </div>
+}
+
+
+<!--<input type="button" class="btn btn-default" value="Cancel" />-->
