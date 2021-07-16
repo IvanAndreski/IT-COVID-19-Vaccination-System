@@ -16,6 +16,7 @@ namespace COVID_19_Vaccination_System.Models {
         public DateTime Date { get; set; }
 
         [Required]
+        [Display(Name = "Име на вакцина")]
         public string NameOfVaccine { get; set; }
     }
 }

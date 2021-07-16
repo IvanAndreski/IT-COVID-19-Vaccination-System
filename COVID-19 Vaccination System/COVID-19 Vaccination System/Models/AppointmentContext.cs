@@ -16,7 +16,7 @@ namespace COVID_19_Vaccination_System.Models {
 
         //
         // Days between doses of each vaccine table
-        public DbSet<VaccineModel> VaccineDaysBetweenDoses { get; set; }
+        public DbSet<VaccineModel> Vaccines { get; set; }
 
         public AppointmentContext() : base("DefaultConnection") { }
 

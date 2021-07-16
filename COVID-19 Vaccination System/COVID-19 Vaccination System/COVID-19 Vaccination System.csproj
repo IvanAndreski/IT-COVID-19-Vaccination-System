@@ -171,6 +171,7 @@
     <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\VaccineController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -190,9 +191,9 @@
     <Compile Include="Migrations\202107151821128_Appointment.Designer.cs">
       <DependentUpon>202107151821128_Appointment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\AppointmentContext\202107151828340_InitialDatabaseCreation.cs" />
-    <Compile Include="Migrations\AppointmentContext\202107151828340_InitialDatabaseCreation.Designer.cs">
-      <DependentUpon>202107151828340_InitialDatabaseCreation.cs</DependentUpon>
+    <Compile Include="Migrations\AppointmentContext\202107161540071_InitialDatabaseCreation.cs" />
+    <Compile Include="Migrations\AppointmentContext\202107161540071_InitialDatabaseCreation.Designer.cs">
+      <DependentUpon>202107161540071_InitialDatabaseCreation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AppointmentContext\Configuration.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -311,9 +312,15 @@
     <Content Include="Views\Appointment\Details.cshtml" />
     <Content Include="Views\Appointment\Edit.cshtml" />
     <Content Include="Views\Appointment\Index.cshtml" />
+    <Content Include="Views\Vaccine\Create.cshtml" />
+    <Content Include="Views\Vaccine\Delete.cshtml" />
+    <Content Include="Views\Vaccine\Details.cshtml" />
+    <Content Include="Views\Vaccine\Index.cshtml" />
+    <Content Include="Views\Vaccine\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\css\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -341,8 +348,8 @@
     <EmbeddedResource Include="Migrations\202107151821128_Appointment.resx">
       <DependentUpon>202107151821128_Appointment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\AppointmentContext\202107151828340_InitialDatabaseCreation.resx">
-      <DependentUpon>202107151828340_InitialDatabaseCreation.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\AppointmentContext\202107161540071_InitialDatabaseCreation.resx">
+      <DependentUpon>202107161540071_InitialDatabaseCreation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

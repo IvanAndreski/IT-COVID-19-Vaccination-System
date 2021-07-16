@@ -1,0 +1,45 @@
+﻿@model COVID_19_Vaccination_System.Models.VaccineModel
+@{
+    ViewBag.Title = "Променете број на достапни вакцини";
+}
+
+<h2>Промени количина за @Model.Name</h2>
+
+<br />
+@using (Html.BeginForm("Edit", "Vaccine", FormMethod.Post, new { @class = "form-horizontal", role = "form" })) {
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2", @readonly = "true"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.TimeBetweenDoses, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.TimeBetweenDoses, htmlAttributes: new { @class = "control-label col-md-2", @readonly = "true"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NumOfDosesAvailable, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.NumOfDosesAvailable, htmlAttributes: new { @class = "control-label col-md-2" })
+                @Html.ValidationMessageFor(model => model.NumOfDosesAvailable, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Зачувај" class="btn btn-default" />
+                @Html.ActionLink("Откажи", "Index", "Home", null, new { @class = "btn btn-default" })
+            </div>
+        </div>
+    </div>
+}
+

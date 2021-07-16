@@ -37,15 +37,7 @@ namespace COVID_19_Vaccination_System.Controllers {
 
         // GET: Appointment/NewAppointment
         public ActionResult NewAppointment() {
-            //var model = new AppointmentViewModel();
-            //model.EmailOfUser = User.Identity.Name;
-
-            ViewBag.ListOfVaccines = new List<string> {
-                "Pfizer",
-                "Sinopharm",
-                "AstraZeneca",
-                "Sputnik"
-            };
+            ViewBag.ListOfVaccines = db.Vaccines.ToList();
 
             return View();
         }

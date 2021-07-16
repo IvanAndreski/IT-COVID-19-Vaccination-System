@@ -24,8 +24,13 @@
 
     @if (User.IsInRole("Administrator")) {
         <div class="col-md-4">
-            <h2>Администраторски Менаџмент</h2>
-            @Html.ActionLink("Промени улога на корисник", "EditUserRole", "Account")
+            <h2>Администраторски Функции</h2>
+            <div>
+                @Html.ActionLink("Промени улога на корисник", "EditUserRole", "Account")
+            </div>
+            <div>
+                @Html.ActionLink("Промени количина на достапни вакцини", "Index", "Vaccine")
+            </div>
         </div>
     }
 
