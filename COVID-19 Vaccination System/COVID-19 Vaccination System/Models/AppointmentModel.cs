@@ -7,8 +7,6 @@ using System.Web;
 namespace COVID_19_Vaccination_System.Models {
     public class AppointmentModel {
         [Key]
-        public int Id { get; set; }
-
         [EmailAddress]
         public string EmailOfUser { get; set; }
 

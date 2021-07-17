@@ -49,7 +49,7 @@ namespace COVID_19_Vaccination_System.Models {
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Лозинка")]
         public string Password { get; set; }
 
         [Display(Name = "Remember me?")]
@@ -65,35 +65,36 @@ namespace COVID_19_Vaccination_System.Models {
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Лозинка")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Display(Name = "Потврди лозинка")]
+        [Compare("Password", ErrorMessage = "Лозинката и потврдата не се еднакви")]
         public string ConfirmPassword { get; set; }
 
         [Required]
-        [Display(Name = "First Name")]
+        [Display(Name = "Име")]
         public string FirstName { get; set; }
 
         [Required]
-        [Display(Name = "Last Name")]
+        [Display(Name = "Презиме")]
         public string LastName { get; set; }
 
         [Required]
-        [Display(Name = "EMBG")]
-        [RegularExpression("^\\d{7}(450|455)\\d{3}", ErrorMessage = "Invalid EMBG")]
+        [Display(Name = "Матичен број")]
+        [RegularExpression("^\\d{7}(450|455)\\d{3}", ErrorMessage = "Невалиден матичен број")]
         public string EMBG { get; set; }
 
         [Required]
-        [Display(Name = "Date of Birth")]
+        [Display(Name = "Дата на раѓање")]
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DateOfBirth { get; set; }
 
         [Required]
-        [Display(Name = "Phone Number")]
-        [RegularExpression("^07[0-8]\\d{6}", ErrorMessage = "Phone number is not a valid Macedonian number")]
+        [Display(Name = "Мобилен телефон")]
+        [RegularExpression("^07[0-8]\\d{6}", ErrorMessage = "Телефонскиот број не е валиден")]
         public string Number { get; set; }
     }
 
@@ -111,7 +112,7 @@ namespace COVID_19_Vaccination_System.Models {
 
         [DataType(DataType.Password)]
         [Display(Name = "Confirm password")]
-        [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+        [Compare("Password", ErrorMessage = "Лозинката и потврдата не се еднакви")]
         public string ConfirmPassword { get; set; }
 
         public string Code { get; set; }

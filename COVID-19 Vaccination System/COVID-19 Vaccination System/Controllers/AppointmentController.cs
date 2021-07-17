@@ -15,7 +15,7 @@ namespace COVID_19_Vaccination_System.Controllers {
         private AppointmentContext db = new AppointmentContext();
 
         // Constants
-        private static readonly int NUM_OF_VACCINATIONS_PER_DAY = 50;
+        private static readonly int MAX_VACCINATIONS_PER_DAY = 50;
         private static DateTime FIRST_DAY_OF_VACCINATION = DateTime.Parse("Sep 1, 2021");
 
         // GET: Appointment
@@ -36,7 +36,7 @@ namespace COVID_19_Vaccination_System.Controllers {
         }
 
         // GET: Appointment/NewAppointment
-        public ActionResult NewAppointment() {
+        public ActionResult Create() {
             ViewBag.ListOfVaccines = db.Vaccines.ToList();
 
             return View();
@@ -47,14 +47,22 @@ namespace COVID_19_Vaccination_System.Controllers {
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult NewAppointment([Bind(Include = "Id,EmailOfUser,Date,NameOfVaccine")] AppointmentModel appointmentModel) {
-            appointmentModel.EmailOfUser = User.Identity.Name;
+        public ActionResult Create([Bind(Include = "Id,EmailOfUser,Date,NameOfVaccine")] AppointmentModel model) {
+            model.EmailOfUser = User.Identity.Name;
 
+            // Find first day in the database that has vaccination appointmennts less than MAX_VACCINATIONS_PER_DAY
+            var day = db.VaccinationsAtDay.FirstOrDefault(x => x.NumVaccinationsAtDay < MAX_VACCINATIONS_PER_DAY);
+            model.Date = day.Day.AddMinutes(day.NumVaccinationsAtDay * 15);
+            db.Appointments.Add(model);
 
-            //db.Appointments.Add(appointmentModel);
-            //db.SaveChanges();
-            //return RedirectToAction("Index");
+            // Edit the number of available doses
+            var v = db.Vaccines.FirstOrDefault(x => x.Name == model.NameOfVaccine);
+            v.NumOfDosesAvailable--;
 
+            // Change the number of vaccinations at that day
+            day.NumVaccinationsAtDay++;
+
+            db.SaveChanges();
 
             return RedirectToAction("Index", "Home");
         }

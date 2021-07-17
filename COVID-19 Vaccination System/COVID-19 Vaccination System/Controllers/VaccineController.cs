@@ -30,6 +30,9 @@ namespace COVID_19_Vaccination_System.Controllers
         [HttpPost]
         public ActionResult Edit(VaccineModel model) {
             if (ModelState.IsValid) {
+                var v = db.Vaccines.FirstOrDefault(x => x.Name == model.Name);
+                v.NumOfDosesAvailable = model.NumOfDosesAvailable;
+                db.SaveChanges();
 
                 return RedirectToAction("Index", "Home");
             }

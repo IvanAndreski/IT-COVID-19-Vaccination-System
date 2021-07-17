@@ -191,9 +191,9 @@
     <Compile Include="Migrations\202107151821128_Appointment.Designer.cs">
       <DependentUpon>202107151821128_Appointment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\AppointmentContext\202107161540071_InitialDatabaseCreation.cs" />
-    <Compile Include="Migrations\AppointmentContext\202107161540071_InitialDatabaseCreation.Designer.cs">
-      <DependentUpon>202107161540071_InitialDatabaseCreation.cs</DependentUpon>
+    <Compile Include="Migrations\AppointmentContext\202107171719257_InitialDatabaseCreation.cs" />
+    <Compile Include="Migrations\AppointmentContext\202107171719257_InitialDatabaseCreation.Designer.cs">
+      <DependentUpon>202107171719257_InitialDatabaseCreation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AppointmentContext\Configuration.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -307,7 +307,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Account\EditUserRole.cshtml" />
-    <Content Include="Views\Appointment\NewAppointment.cshtml" />
+    <Content Include="Views\Appointment\Create.cshtml" />
     <Content Include="Views\Appointment\Delete.cshtml" />
     <Content Include="Views\Appointment\Details.cshtml" />
     <Content Include="Views\Appointment\Edit.cshtml" />
@@ -348,8 +348,8 @@
     <EmbeddedResource Include="Migrations\202107151821128_Appointment.resx">
       <DependentUpon>202107151821128_Appointment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\AppointmentContext\202107161540071_InitialDatabaseCreation.resx">
-      <DependentUpon>202107161540071_InitialDatabaseCreation.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\AppointmentContext\202107171719257_InitialDatabaseCreation.resx">
+      <DependentUpon>202107171719257_InitialDatabaseCreation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
