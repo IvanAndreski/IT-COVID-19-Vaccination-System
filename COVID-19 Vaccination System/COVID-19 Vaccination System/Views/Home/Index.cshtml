@@ -15,11 +15,11 @@
     </div>
     <div class="col-md-4">
         <h2>Мои Термини</h2>
-        <button class="btn btn-info">@Html.ActionLink("Мои Термини", "NewAppointment", "Appointment", new { style = "color: white; text-decoration:none;" })</button>
+        <button class="btn btn-info">@Html.ActionLink("Мои Термини", "Index", "Appointment", null, new { style = "color: white; text-decoration:none;" })</button>
     </div>
     <div class="col-md-4">
         <h2>Мој Профил</h2>
-        <button class="btn btn-info">@Html.ActionLink("Моj Профил", "NewAppointment", "Appointment", new { style = "color: white; text-decoration:none;" })</button>
+        <button class="btn btn-info">@Html.ActionLink("Моj Профил", "Index", "Appointment", null, new { style = "color: white; text-decoration:none;" })</button>
     </div>
 
     @if (User.IsInRole("Administrator")) {

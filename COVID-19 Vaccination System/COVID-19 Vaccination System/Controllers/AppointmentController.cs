@@ -20,7 +20,7 @@ namespace COVID_19_Vaccination_System.Controllers {
 
         // GET: Appointment
         public ActionResult Index() {
-            return View(db.Appointments.ToList());
+            return View(db.Appointments.Where(x => x.EmailOfUser == User.Identity.Name).ToList());
         }
 
         // GET: Appointment/Details/5
@@ -35,8 +35,15 @@ namespace COVID_19_Vaccination_System.Controllers {
             return View(appointmentModel);
         }
 
-        // GET: Appointment/NewAppointment
+        // GET: Appointment/Create
         public ActionResult Create() {
+            // Check if user already hass made an appointment
+            var a = db.Appointments.Where(x => x.EmailOfUser == User.Identity.Name).ToList();
+            if (a.Count() > 0)
+            {
+                return AppointmentExistsError(a);
+            }
+
             ViewBag.ListOfVaccines = db.Vaccines.ToList();
 
             return View();
@@ -53,6 +60,7 @@ namespace COVID_19_Vaccination_System.Controllers {
             // Find first day in the database that has vaccination appointmennts less than MAX_VACCINATIONS_PER_DAY
             var day = db.VaccinationsAtDay.FirstOrDefault(x => x.NumVaccinationsAtDay < MAX_VACCINATIONS_PER_DAY);
             model.Date = day.Day.AddMinutes(day.NumVaccinationsAtDay * 15);
+            model.AppointmentNum = 1;
             db.Appointments.Add(model);
 
             // Edit the number of available doses
@@ -65,6 +73,12 @@ namespace COVID_19_Vaccination_System.Controllers {
             db.SaveChanges();
 
             return RedirectToAction("Index", "Home");
+        }
+
+        // GET: Appointment/AppointmentExistsError
+        public ActionResult AppointmentExistsError(IEnumerable<AppointmentModel> model)
+        {
+            return View("AppointmentExistsError", model);
         }
 
         // GET: Appointment/Edit/5

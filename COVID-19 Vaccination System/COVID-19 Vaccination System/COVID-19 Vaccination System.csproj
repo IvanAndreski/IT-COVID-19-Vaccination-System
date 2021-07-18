@@ -191,9 +191,9 @@
     <Compile Include="Migrations\202107151821128_Appointment.Designer.cs">
       <DependentUpon>202107151821128_Appointment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\AppointmentContext\202107171719257_InitialDatabaseCreation.cs" />
-    <Compile Include="Migrations\AppointmentContext\202107171719257_InitialDatabaseCreation.Designer.cs">
-      <DependentUpon>202107171719257_InitialDatabaseCreation.cs</DependentUpon>
+    <Compile Include="Migrations\AppointmentContext\202107181625492_InitialDatabaseCreation.cs" />
+    <Compile Include="Migrations\AppointmentContext\202107181625492_InitialDatabaseCreation.Designer.cs">
+      <DependentUpon>202107181625492_InitialDatabaseCreation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\AppointmentContext\Configuration.cs" />
     <Compile Include="Migrations\Configuration.cs" />
@@ -317,6 +317,7 @@
     <Content Include="Views\Vaccine\Details.cshtml" />
     <Content Include="Views\Vaccine\Index.cshtml" />
     <Content Include="Views\Vaccine\Edit.cshtml" />
+    <Content Include="Views\Appointment\AppointmentExistsError.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -348,8 +349,8 @@
     <EmbeddedResource Include="Migrations\202107151821128_Appointment.resx">
       <DependentUpon>202107151821128_Appointment.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\AppointmentContext\202107171719257_InitialDatabaseCreation.resx">
-      <DependentUpon>202107171719257_InitialDatabaseCreation.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\AppointmentContext\202107181625492_InitialDatabaseCreation.resx">
+      <DependentUpon>202107181625492_InitialDatabaseCreation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
