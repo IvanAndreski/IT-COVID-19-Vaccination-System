@@ -1,10 +1,10 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Дома";
 }
 
 <div class="jumbotron">
     <h1>COVID-19 Vaccination System</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+    <p class="lead">Добредојде: @User.Identity.Name</p>
     <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
 </div>
 
@@ -22,7 +22,8 @@
         <button class="btn btn-info">@Html.ActionLink("Моj Профил", "Index", "Appointment", null, new { style = "color: white; text-decoration:none;" })</button>
     </div>
 
-    @if (User.IsInRole("Administrator")) {
+    @if (User.IsInRole("Administrator"))
+    {
         <div class="col-md-4">
             <h2>Администраторски Функции</h2>
             <div>
@@ -30,6 +31,16 @@
             </div>
             <div>
                 @Html.ActionLink("Промени количина на достапни вакцини", "Index", "Vaccine")
+            </div>
+        </div>
+    }
+
+    @if (User.IsInRole("Doctor"))
+    {
+        <div class="col-md-4">
+            <h2>Денешни термини</h2>
+            <div>
+                @Html.ActionLink("Денешни термини", "AppointmentsToday", "Appointment")
             </div>
         </div>
     }

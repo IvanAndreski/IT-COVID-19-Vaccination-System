@@ -23,18 +23,6 @@ namespace COVID_19_Vaccination_System.Controllers {
             return View(db.Appointments.Where(x => x.EmailOfUser == User.Identity.Name).ToList());
         }
 
-        // GET: Appointment/Details/5
-        public ActionResult Details(int? id) {
-            if (id == null) {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            AppointmentModel appointmentModel = db.Appointments.Find(id);
-            if (appointmentModel == null) {
-                return HttpNotFound();
-            }
-            return View(appointmentModel);
-        }
-
         // GET: Appointment/Create
         public ActionResult Create() {
             // Check if user already hass made an appointment
@@ -61,6 +49,7 @@ namespace COVID_19_Vaccination_System.Controllers {
             var day = db.VaccinationsAtDay.FirstOrDefault(x => x.NumVaccinationsAtDay < MAX_VACCINATIONS_PER_DAY);
             model.Date = day.Day.AddMinutes(day.NumVaccinationsAtDay * 15);
             model.AppointmentNum = 1;
+            model.Confirmed = false;
             db.Appointments.Add(model);
 
             // Edit the number of available doses
@@ -81,52 +70,70 @@ namespace COVID_19_Vaccination_System.Controllers {
             return View("AppointmentExistsError", model);
         }
 
-        // GET: Appointment/Edit/5
-        public ActionResult Edit(int? id) {
-            if (id == null) {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            AppointmentModel appointmentModel = db.Appointments.Find(id);
-            if (appointmentModel == null) {
-                return HttpNotFound();
-            }
-            return View(appointmentModel);
+        // GET: Appointment/Delete/
+        public ActionResult Delete(int aNum) {
+            AppointmentModel model = db.Appointments.FirstOrDefault(x => x.AppointmentNum == aNum && x.EmailOfUser == User.Identity.Name);
+
+            return Delete(model);
         }
 
-        // POST: Appointment/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Appointment/Delete/
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,EmailOfUser,Date,NameOfVaccine")] AppointmentModel appointmentModel) {
-            if (ModelState.IsValid) {
-                db.Entry(appointmentModel).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(appointmentModel);
-        }
+        public ActionResult Delete(AppointmentModel model) {
+            // Remove appontment
+            db.Appointments.Remove(model);
 
-        // GET: Appointment/Delete/5
-        public ActionResult Delete(int? id) {
-            if (id == null) {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            AppointmentModel appointmentModel = db.Appointments.Find(id);
-            if (appointmentModel == null) {
-                return HttpNotFound();
-            }
-            return View(appointmentModel);
-        }
+            // Add to available vaccine doses
+            var v = db.Vaccines.FirstOrDefault(x => model.NameOfVaccine == x.Name);
+            v.NumOfDosesAvailable++;
 
-        // POST: Appointment/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id) {
-            AppointmentModel appointmentModel = db.Appointments.Find(id);
-            db.Appointments.Remove(appointmentModel);
             db.SaveChanges();
+
             return RedirectToAction("Index");
+        }
+
+        // GET: Appointment/AppointmentsToday
+        [Authorize(Roles = "Doctor")]
+        public ActionResult AppointmentsToday()
+        {
+            DateTime temp = DateTime.Parse("Sep 1, 2021");
+            List<AppointmentModel> appointments = db.Appointments.Where(x => DbFunctions.TruncateTime(x.Date) == temp.Date).ToList();
+
+            return View(appointments);
+        }
+
+        // GET: Appointment/Confirm
+        public ActionResult Confirm(int aNum, string email)
+        {
+            AppointmentModel model = db.Appointments.FirstOrDefault(x => x.AppointmentNum == aNum && x.EmailOfUser == email);
+
+            return Confirm(model);
+        }
+
+        // POST: Appointment/Confirm
+        [HttpPost]
+        public ActionResult Confirm(AppointmentModel model)
+        {
+            // Remove appontment
+            model.Confirmed = true;
+
+            // Find vaccinne in database
+            var v = db.Vaccines.FirstOrDefault(x => x.Name == model.NameOfVaccine);
+
+            // Create second appointment
+            AppointmentModel secondAppointment = new AppointmentModel();
+            secondAppointment.AppointmentNum = 2;
+            secondAppointment.Confirmed = false;
+            secondAppointment.EmailOfUser = model.EmailOfUser;
+            secondAppointment.NameOfVaccine = model.NameOfVaccine;
+            secondAppointment.Date = model.Date.AddDays(v.TimeBetweenDoses);
+
+            // Add second appointment
+            db.Appointments.Add(secondAppointment);
+
+            db.SaveChanges();
+
+            return RedirectToAction("AppointmentsToday");
         }
 
         protected override void Dispose(bool disposing) {

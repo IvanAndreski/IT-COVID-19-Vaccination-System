@@ -1,0 +1,74 @@
+﻿@model IEnumerable<COVID_19_Vaccination_System.Models.AppointmentModel>
+
+<div>
+    <hr />
+    <table id="appoitmentTable" class="table">
+        <thead>
+            <tr>
+                <th scope="col">Корисник</th>
+                <th scope="col">Датум</th>
+                <th scope="col">Вакцина</th>
+                <th scope="col">Вакцинација/Ревакцинација</th>
+                @{
+                    string p = "";
+                    if (User.IsInRole("Doctor"))
+                    {
+                        p = "Потрвда";
+                    }
+                }
+                <th scope="col">@p</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var m in Model)
+                {
+                        <tr>
+                            <td>@m.EmailOfUser</td>
+                            <td>@m.Date</td>
+                            <td>@m.NameOfVaccine</td>
+                            @{
+                                string vac = "";
+                                if (m.AppointmentNum == 1)
+                                {
+                                    vac = "Вакцинација";
+                                }
+                                else
+                                {
+                                    vac = "Ревакцинација";
+                                }
+                            }
+                            <td>@vac</td>
+                            @if (User.IsInRole("User"))
+                            {
+                                <td><a href="Appointment/Delete?aNum=@m.AppointmentNum" class="btn btn-danger" style="color: white; text-decoration: none" onclick="return confirm('Дали сте сигурни?');">Откажи термин</a></td>
+                            }
+                            else if (User.IsInRole("Doctor"))
+                            {
+                                if (m.Confirmed)
+                                {
+                                    <td><span class="btn btn-success" style="color: white; text-decoration: none">Потврден</span></td>
+                                }
+                                else
+                                {
+                                    <td><a href="Confirm?aNum=@m.AppointmentNum&email=@m.EmailOfUser" class="btn btn-info" style="color: white; text-decoration: none" onclick="return confirm('Дали сте сигурни?');">Потврди термин</a></td>
+                                }
+                            }
+
+                        </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+<div class="btn btn-info">
+    @Html.ActionLink("Дома", "Index", "Home", null, new { style = "color: white; text-decoration:none;" })
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#appoitmentTable").DataTable();
+        });
+    </script>
+}

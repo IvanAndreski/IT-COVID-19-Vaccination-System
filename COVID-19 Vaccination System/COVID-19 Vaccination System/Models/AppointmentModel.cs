@@ -6,10 +6,10 @@ using System.Web;
 
 namespace COVID_19_Vaccination_System.Models {
     public class AppointmentModel {
-        [Key]
         [EmailAddress]
         public string EmailOfUser { get; set; }
 
+        [Key]
         [DataType(DataType.DateTime)]
         public DateTime Date { get; set; }
 
@@ -18,5 +18,7 @@ namespace COVID_19_Vaccination_System.Models {
         public string NameOfVaccine { get; set; }
 
         public int AppointmentNum { get; set; }
+
+        public bool Confirmed { get; set; }
     }
 }
