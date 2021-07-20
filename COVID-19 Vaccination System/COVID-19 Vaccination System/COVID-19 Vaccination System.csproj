@@ -171,6 +171,7 @@
     <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\VaccineController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -197,12 +198,22 @@
     </Compile>
     <Compile Include="Migrations\AppointmentContext\Configuration.cs" />
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\NewsContext\202107201540151_InitialDatabaseCreation.cs" />
+    <Compile Include="Migrations\NewsContext\202107201540151_InitialDatabaseCreation.Designer.cs">
+      <DependentUpon>202107201540151_InitialDatabaseCreation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\NewsContext\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppointmentContext.cs" />
     <Compile Include="Models\AppointmentModel.cs" />
+    <Compile Include="Models\ChangeInVaccinesNewsModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\NewsContext.cs" />
+    <Compile Include="Models\NewsViewModel.cs" />
+    <Compile Include="Models\VaccinationsNewsModel.cs" />
     <Compile Include="Models\VaccinationsAtDay.cs" />
+    <Compile Include="Models\VaccineEditViewModel.cs" />
     <Compile Include="Models\VaccineModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -503,18 +514,17 @@
     <Content Include="Views\Appointment\Create.cshtml" />
     <Content Include="Views\Appointment\Delete.cshtml" />
     <Content Include="Views\Appointment\Index.cshtml" />
-    <Content Include="Views\Vaccine\Create.cshtml" />
-    <Content Include="Views\Vaccine\Delete.cshtml" />
-    <Content Include="Views\Vaccine\Details.cshtml" />
     <Content Include="Views\Vaccine\Index.cshtml" />
     <Content Include="Views\Vaccine\Edit.cshtml" />
     <Content Include="Views\Appointment\AppointmentExistsError.cshtml" />
     <Content Include="Views\Appointment\_AppointmentsOfUserPartial.cshtml" />
     <Content Include="Views\Appointment\AppointmentsToday.cshtml" />
+    <Content Include="Views\News\Index.cshtml" />
+    <Content Include="Views\News\_ChangeInVaccinesNewsPartial.cshtml" />
+    <Content Include="Views\News\_VaccinationNewsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\css\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -544,6 +554,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\AppointmentContext\202107191619084_InitialDatabaseCreation.resx">
       <DependentUpon>202107191619084_InitialDatabaseCreation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\NewsContext\202107201540151_InitialDatabaseCreation.resx">
+      <DependentUpon>202107201540151_InitialDatabaseCreation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

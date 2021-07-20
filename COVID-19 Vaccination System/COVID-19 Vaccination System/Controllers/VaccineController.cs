@@ -14,109 +14,65 @@ namespace COVID_19_Vaccination_System.Controllers
     [Authorize(Roles = "Administrator")]
     public class VaccineController : Controller
     {
-        private AppointmentContext db = new AppointmentContext();
+        private AppointmentContext dbAppointments = new AppointmentContext();
+        private NewsContext dbNews = new NewsContext();
+
+        // GET: Vaccine
+        public ActionResult Index()
+        {
+            return View(dbAppointments.Vaccines.ToList());
+        }
 
         // GET: Vaccine/Edit
         public ActionResult Edit(string param) {
-            var query = from a in db.Vaccines
+            var query = from a in dbAppointments.Vaccines
                         where a.Name.Contains(param)
                         select a;
 
-            VaccineModel model = (from vaccine in db.Vaccines where vaccine.Name == param select vaccine).FirstOrDefault();
+            VaccineModel v = (from vaccine in dbAppointments.Vaccines where vaccine.Name == param select vaccine).FirstOrDefault();
+            VaccineEditViewModel model = new VaccineEditViewModel();
+            model.Vaccine = v;
+            model.NewDoses = 0;
+
             return View(model);
         }
 
         // POST: Vaccine/Edit
         [HttpPost]
-        public ActionResult Edit(VaccineModel model) {
+        public ActionResult Edit(VaccineEditViewModel model) {
             if (ModelState.IsValid) {
-                var v = db.Vaccines.FirstOrDefault(x => x.Name == model.Name);
-                v.NumOfDosesAvailable = model.NumOfDosesAvailable;
-                db.SaveChanges();
+                // Change values in Vaccine Tables
+                var v = dbAppointments.Vaccines.FirstOrDefault(x => x.Name == model.Vaccine.Name);
+                v.NumOfDosesAvailable = model.Vaccine.NumOfDosesAvailable + model.NewDoses;
+                dbAppointments.SaveChanges();
+
+                // Add news
+                ChangeInVaccinesNewsModel c = new ChangeInVaccinesNewsModel();
+                c.Date = DateTime.Now;
+                switch(model.Vaccine.Name)
+                {
+                    case "AstraZeneca":
+                        c.AstraZenecaChange = model.NewDoses;
+                        break;
+                    case "Pfizer":
+                        c.PfizerChange = model.NewDoses;
+                        break;
+                    case "Sputnik":
+                        c.SputnikChange = model.NewDoses;
+                        break;
+                    case "Sinopharm":
+                        c.SinopharmChange = model.NewDoses;
+                        break;
+                    default:
+                        break;
+                }
+                dbNews.ChangeInVaccinesNews.Add(c);
+                dbNews.SaveChanges();
 
                 return RedirectToAction("Index", "Home");
             }
 
             return View(model);
-        }
-
-        // GET: Vaccine
-        public ActionResult Index()
-        {
-            return View(db.Vaccines.ToList());
-        }
-
-        // GET: Vaccine/Details/5
-        public ActionResult Details(DateTime id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            VaccinationsAtDay vaccinationsAtDay = db.VaccinationsAtDay.Find(id);
-            if (vaccinationsAtDay == null)
-            {
-                return HttpNotFound();
-            }
-            return View(vaccinationsAtDay);
-        }
-
-        // GET: Vaccine/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Vaccine/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Day,NumVaccinationsAtDay")] VaccinationsAtDay vaccinationsAtDay)
-        {
-            if (ModelState.IsValid)
-            {
-                db.VaccinationsAtDay.Add(vaccinationsAtDay);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(vaccinationsAtDay);
-        }
-
-        // GET: Vaccine/Delete/5
-        public ActionResult Delete(DateTime id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            VaccinationsAtDay vaccinationsAtDay = db.VaccinationsAtDay.Find(id);
-            if (vaccinationsAtDay == null)
-            {
-                return HttpNotFound();
-            }
-            return View(vaccinationsAtDay);
-        }
-
-        // POST: Vaccine/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(DateTime id)
-        {
-            VaccinationsAtDay vaccinationsAtDay = db.VaccinationsAtDay.Find(id);
-            db.VaccinationsAtDay.Remove(vaccinationsAtDay);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

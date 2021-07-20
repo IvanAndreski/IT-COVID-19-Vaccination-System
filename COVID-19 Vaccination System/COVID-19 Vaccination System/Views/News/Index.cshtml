@@ -1,0 +1,21 @@
+﻿@model COVID_19_Vaccination_System.Models.NewsViewModel
+
+@{
+    ViewBag.Title = "Новости";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="container-fluid">
+    <!-- If Needed Left and Right Padding in 'md' and 'lg' screen means use container class -->
+    <div class="row">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            @Html.Partial("_VaccinationNewsPartial", Model.VaccinationsNewsList)
+        </div>
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            @Html.Partial("_ChangeInVaccinesNewsPartial", Model.ChangeInVaccinesNewsList)
+        </div>
+    </div>
+</div>
+
+

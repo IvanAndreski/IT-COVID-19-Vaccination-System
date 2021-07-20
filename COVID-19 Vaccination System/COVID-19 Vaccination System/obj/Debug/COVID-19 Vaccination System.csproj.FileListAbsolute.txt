@@ -112,3 +112,4 @@ F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\IT-COVID-19-Vaccination-Syst
 F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\IT-COVID-19-Vaccination-System\COVID-19 Vaccination System\COVID-19 Vaccination System\obj\Debug\COVID-19 Vaccination System.csproj.AssemblyReference.cache
 F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\IT-COVID-19-Vaccination-System\COVID-19 Vaccination System\COVID-19 Vaccination System\obj\Debug\COVID_19_Vaccination_System.Migrations.Appointment.resources
 F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\IT-COVID-19-Vaccination-System\COVID-19 Vaccination System\COVID-19 Vaccination System\obj\Debug\COVID_19_Vaccination_System.Migrations.AppointmentContext.InitialDatabaseCreation.resources
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\IT-COVID-19-Vaccination-System\COVID-19 Vaccination System\COVID-19 Vaccination System\obj\Debug\COVID_19_Vaccination_System.Migrations.NewsContext.InitialDatabaseCreation.resources
