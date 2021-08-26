@@ -2,83 +2,22 @@
     ViewBag.Title = "Дома";
 }
 
-<div class="jumbotron">
-    <h1>COVID-19 Vaccination System</h1>
-    <p class="lead">Добредојде: @User.Identity.Name</p>
-    @Html.ActionLink("Новости", "Index", "News", null, htmlAttributes: new { @class = "btn btn-primary btn-lg" })
-</div>
+@Html.Partial("_WelcomePartial")
+
+@if (User.Identity.IsAuthenticated)
+{
+    @Html.Partial("_LoggedInUserPartial");
+}
 
 <div class="row">
-    <div class="col-md-4">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h2>Закажи Термин</h2>
-            </div>
-            <div class="panel-body">
-                <button class="btn btn-info kopce">@Html.ActionLink("Закажи", "Create", "Appointment", null, new { style = "color: white; text-decoration:none;" })</button>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h2>Мои Термини</h2>
-            </div>
-            <div class="panel-body">
-                <button class="btn btn-info kopce">@Html.ActionLink("Мои Термини", "Index", "Appointment", null, new { style = "color: white; text-decoration:none;" })</button>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-4">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h2>Мој Профил</h2>
-            </div>
-            <div class="panel-body">
-                <button class="btn btn-info kopce">@Html.ActionLink("Моj Профил", "Index", "Appointment", null, new { style = "color: white; text-decoration:none;" })</button>
-            </div>
-        </div>
-    </div>
-
     @if (User.IsInRole("Administrator"))
     {
-        <div class="col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h2>Администраторски Функции</h2>
-                </div>
-                <div class="panel-body">
-                    <ul style="list-style-type: none; padding-left: 0;">
-                        <li>
-                            <button class="btn btn-info kopce">@Html.ActionLink("Промени улога на корисник", "EditUserRole", "Account", null, new { style = "color: white; text-decoration:none;" })</button>
-                        </li>
-                        <li>
-                            <button class="btn btn-info kopce">@Html.ActionLink("Промени количина на достапни вакцини", "Index", "Vaccine", null, new { style = "color: white; text-decoration:none;" })</button>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        @Html.Partial("_AdminFunctionsPartial");
     }
-
-    @if (User.IsInRole("Doctor"))
+    else if (User.IsInRole("Doctor"))
     {
-        <div class="col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h2>Денешни термини</h2>
-                </div>
-                <div class="panel-body">
-                    <ul style="list-style-type: none; padding-left: 0;">
-                        <li>
-                            <button class="btn btn-info kopce">@Html.ActionLink("Денешни термини", "AppointmentsToday", "Appointment", null, new { style = "color: white; text-decoration:none;" })</button>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+        @Html.Partial("_DoctorFunctionsPartial");
     }
-
 </div>
 
 <style>
@@ -87,7 +26,11 @@
     }
 
     .kopce {
-        width: 100%;
-        display: block;
+    width: 100%;
+    display: block;
+    }
+
+    .col-md-4 {
+        margin-top: 22px;
     }
 </style>

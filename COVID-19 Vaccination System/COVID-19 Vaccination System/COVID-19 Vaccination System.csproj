@@ -524,6 +524,12 @@
     <Content Include="Views\News\_ChangeInVaccinesNewsPartial.cshtml" />
     <Content Include="Views\News\_VaccinationNewsPartial.cshtml" />
     <Content Include="Views\News\_AvailableVaccinesPartial.cshtml" />
+    <Content Include="Views\Home\_WelcomePartial.cshtml" />
+    <Content Include="Views\Home\_LoggedInUserPartial.cshtml" />
+    <Content Include="Views\Home\_NotLoggedInUserPartial.cshtml" />
+    <Content Include="Views\Home\_DoctorFunctionsPartial.cshtml" />
+    <Content Include="Views\Home\_AdminFunctionsPartial.cshtml" />
+    <Content Include="Views\Appointment\UserIsDoctorError.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

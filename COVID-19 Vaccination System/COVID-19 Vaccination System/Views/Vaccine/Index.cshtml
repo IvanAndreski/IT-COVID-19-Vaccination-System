@@ -19,7 +19,8 @@
     <tbody>
         @{
             int i = 1;
-            foreach (var vaccine in Model) {
+            foreach (var vaccine in Model)
+            {
                 <tr>
                     <th scope="row">@i</th>
                     <td>@vaccine.Name</td>
@@ -32,4 +33,9 @@
         }
     </tbody>
 </table>
+<hr/>
+
+<div class="btn btn-info">
+    @Html.ActionLink("Дома", "Index", "Home", null, new { style = "color: white; text-decoration:none;" })
+</div>
 

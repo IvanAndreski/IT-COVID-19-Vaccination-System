@@ -25,16 +25,8 @@
 
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Confirm" />
-        </div>
-    </div>
-
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            @Html.ActionLink("Cancel", "Index", "Home", null, htmlAttributes: new { @class = "btn btn-default" })
+            <input type="submit" class="btn btn-success" value="Зачувај" />
+            @Html.ActionLink("Откажи", "Index", "Home", null, htmlAttributes: new { @class = "btn btn-danger" })
         </div>
     </div>
 }
-
-
-<!--<input type="button" class="btn btn-default" value="Cancel" />-->

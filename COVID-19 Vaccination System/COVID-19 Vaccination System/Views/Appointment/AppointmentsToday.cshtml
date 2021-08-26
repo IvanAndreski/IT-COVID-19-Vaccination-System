@@ -6,4 +6,18 @@
 
 <h2>@ViewBag.Title</h2>
 
-@Html.Partial("_AppointmentsOfUserPartial", Model)
+@if (!Model.Any())
+{
+    <h3 class="text-">
+        Нема закажани термини за ден @DateTime.Now.ToShortDateString()
+    </h3>
+}
+else
+{
+    @Html.Partial("_AppointmentsOfUserPartial", Model)
+}
+
+<div class="btn btn-info">
+    @Html.ActionLink("Дома", "Index", "Home", null, new { style = "color: white; text-decoration:none;" })
+</div>
+

@@ -1,0 +1,21 @@
+﻿<div class="jumbotron">
+    <h1>COVID-19 Vaccination System</h1>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <p class="lead">Добредојде: @User.Identity.Name</p>
+    }
+    else
+    {
+        <p class="lead">Заштити се ти и твоите најблиски. Вакцинирај се денес!</p>
+        <button class="btn btn-primary btn-lg">
+            @Html.ActionLink("Регистрација", "Register", "Account", null, new { style = "color: white; text-decoration:none;" })
+        </button>
+        <button class="btn btn-primary btn-lg">
+            @Html.ActionLink("Најавете се", "Login", "Account", null, new { style = "color: white; text-decoration:none;" })
+        </button>
+    }
+
+    @Html.ActionLink("Новости", "Index", "News", null, htmlAttributes: new { @class = "btn btn-info btn-lg" })
+
+</div>

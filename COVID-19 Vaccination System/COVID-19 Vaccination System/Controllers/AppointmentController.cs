@@ -24,13 +24,25 @@ namespace COVID_19_Vaccination_System.Controllers
         // GET: Appointment
         public ActionResult Index()
         {
+            // If user is doctor instruct him/her to create a private account
+            if (User.IsInRole("Doctor"))
+            {
+                return View("UserIsDoctorError");
+            }
+
             return View(dbAppointments.Appointments.Where(x => x.EmailOfUser == User.Identity.Name).ToList());
         }
 
         // GET: Appointment/Create
         public ActionResult Create()
         {
-            // Check if user already hass made an appointment
+            // If user is doctor instruct him/her to create a private account
+            if(User.IsInRole("Doctor"))
+            {
+                return View("UserIsDoctorError");
+            }
+
+            // Check if user already has made an appointment
             var a = dbAppointments.Appointments
                 .Where(x => x.EmailOfUser == User.Identity.Name)
                 .ToList();
