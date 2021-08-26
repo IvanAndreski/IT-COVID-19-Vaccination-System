@@ -52,7 +52,10 @@ namespace COVID_19_Vaccination_System.Controllers
             model.EmailOfUser = User.Identity.Name;
 
             // Find first day in the database that has vaccination appointmennts less than MAX_VACCINATIONS_PER_DAY
-            var day = dbAppointments.VaccinationsAtDay.FirstOrDefault(x => x.NumVaccinationsAtDay < MAX_VACCINATIONS_PER_DAY);
+            var day = dbAppointments.VaccinationsAtDay
+                .FirstOrDefault(x => x.NumVaccinationsAtDay < MAX_VACCINATIONS_PER_DAY &&
+                DateTime.Compare(DbFunctions.TruncateTime(x.Day).Value, DbFunctions.TruncateTime(DateTime.Now).Value) > 0);
+
             model.Date = day.Day.AddMinutes(day.NumVaccinationsAtDay * 15);
             model.AppointmentNum = 1;
             model.Confirmed = false;
@@ -79,7 +82,9 @@ namespace COVID_19_Vaccination_System.Controllers
         // GET: Appointment/Delete/
         public ActionResult Delete(int aNum)
         {
-            AppointmentModel model = dbAppointments.Appointments.FirstOrDefault(x => x.AppointmentNum == aNum && x.EmailOfUser == User.Identity.Name);
+            AppointmentModel model = dbAppointments
+                .Appointments
+                .FirstOrDefault(x => x.AppointmentNum == aNum && x.EmailOfUser == User.Identity.Name);
 
             return Delete(model);
         }
@@ -92,7 +97,9 @@ namespace COVID_19_Vaccination_System.Controllers
             dbAppointments.Appointments.Remove(model);
 
             // Add to available vaccine doses
-            var v = dbAppointments.Vaccines.FirstOrDefault(x => model.NameOfVaccine == x.Name);
+            var v = dbAppointments
+                .Vaccines
+                .FirstOrDefault(x => model.NameOfVaccine == x.Name);
             v.NumOfDosesAvailable++;
 
             dbAppointments.SaveChanges();
@@ -104,8 +111,11 @@ namespace COVID_19_Vaccination_System.Controllers
         [Authorize(Roles = "Doctor")]
         public ActionResult AppointmentsToday()
         {
-            DateTime temp = DateTime.Parse("Sep 1, 2021");
-            List<AppointmentModel> appointments = dbAppointments.Appointments.Where(x => DbFunctions.TruncateTime(x.Date) == temp.Date).ToList();
+            DateTime temp = DateTime.Today;
+            List<AppointmentModel> appointments = dbAppointments
+                .Appointments
+                .Where(x => DbFunctions.TruncateTime(x.Date) == temp.Date)
+                .ToList();
 
             return View(appointments);
         }
