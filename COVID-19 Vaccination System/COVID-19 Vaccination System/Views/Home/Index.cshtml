@@ -10,27 +10,53 @@
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Закажи Термин</h2>
-        <button class="btn btn-info">@Html.ActionLink("Закажи", "Create", "Appointment", null, new { style = "color: white; text-decoration:none;" })</button>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2>Закажи Термин</h2>
+            </div>
+            <div class="panel-body">
+                <button class="btn btn-info kopce">@Html.ActionLink("Закажи", "Create", "Appointment", null, new { style = "color: white; text-decoration:none;" })</button>
+            </div>
+        </div>
     </div>
     <div class="col-md-4">
-        <h2>Мои Термини</h2>
-        <button class="btn btn-info">@Html.ActionLink("Мои Термини", "Index", "Appointment", null, new { style = "color: white; text-decoration:none;" })</button>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2>Мои Термини</h2>
+            </div>
+            <div class="panel-body">
+                <button class="btn btn-info kopce">@Html.ActionLink("Мои Термини", "Index", "Appointment", null, new { style = "color: white; text-decoration:none;" })</button>
+            </div>
+        </div>
     </div>
     <div class="col-md-4">
-        <h2>Мој Профил</h2>
-        <button class="btn btn-info">@Html.ActionLink("Моj Профил", "Index", "Appointment", null, new { style = "color: white; text-decoration:none;" })</button>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2>Мој Профил</h2>
+            </div>
+            <div class="panel-body">
+                <button class="btn btn-info kopce">@Html.ActionLink("Моj Профил", "Index", "Appointment", null, new { style = "color: white; text-decoration:none;" })</button>
+            </div>
+        </div>
     </div>
 
     @if (User.IsInRole("Administrator"))
     {
         <div class="col-md-4">
-            <h2>Администраторски Функции</h2>
-            <div>
-                @Html.ActionLink("Промени улога на корисник", "EditUserRole", "Account")
-            </div>
-            <div>
-                @Html.ActionLink("Промени количина на достапни вакцини", "Index", "Vaccine")
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2>Администраторски Функции</h2>
+                </div>
+                <div class="panel-body">
+                    <ul style="list-style-type: none; padding-left: 0;">
+                        <li>
+                            <button class="btn btn-info kopce">@Html.ActionLink("Промени улога на корисник", "EditUserRole", "Account", null, new { style = "color: white; text-decoration:none;" })</button>
+                        </li>
+                        <li>
+                            <button class="btn btn-info kopce">@Html.ActionLink("Промени количина на достапни вакцини", "Index", "Vaccine", null, new { style = "color: white; text-decoration:none;" })</button>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     }
@@ -38,11 +64,30 @@
     @if (User.IsInRole("Doctor"))
     {
         <div class="col-md-4">
-            <h2>Денешни термини</h2>
-            <div>
-                @Html.ActionLink("Денешни термини", "AppointmentsToday", "Appointment")
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2>Денешни термини</h2>
+                </div>
+                <div class="panel-body">
+                    <ul style="list-style-type: none; padding-left: 0;">
+                        <li>
+                            <button class="btn btn-info kopce">@Html.ActionLink("Денешни термини", "AppointmentsToday", "Appointment", null, new { style = "color: white; text-decoration:none;" })</button>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
     }
 
 </div>
+
+<style>
+    li {
+        padding-bottom: 5px;
+    }
+
+    .kopce {
+        width: 100%;
+        display: block;
+    }
+</style>

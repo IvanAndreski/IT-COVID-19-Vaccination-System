@@ -31,13 +31,23 @@ namespace COVID_19_Vaccination_System.Controllers
         public ActionResult Create()
         {
             // Check if user already hass made an appointment
-            var a = dbAppointments.Appointments.Where(x => x.EmailOfUser == User.Identity.Name).ToList();
+            var a = dbAppointments.Appointments
+                .Where(x => x.EmailOfUser == User.Identity.Name)
+                .ToList();
             if (a.Count() > 0)
             {
                 return AppointmentExistsError(a);
             }
 
-            ViewBag.ListOfVaccines = dbAppointments.Vaccines.ToList();
+            var model = new CreateAppointmentViewModel();
+            model.VaccineList = dbAppointments.Vaccines.ToList();
+            model.AvailableVaccineNameList = model.VaccineList
+                .Where(x => x.NumOfDosesAvailable > 0)
+                .Select(x => x.Name)
+                .ToList();
+            if (model.AvailableVaccineNameList.Count > 0)
+                model.CanAppoint = true;
+            ViewBag.ViewModel = model;
 
             return View();
         }

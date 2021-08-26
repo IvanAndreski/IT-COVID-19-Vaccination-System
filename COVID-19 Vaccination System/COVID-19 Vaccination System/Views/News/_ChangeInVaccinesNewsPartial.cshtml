@@ -5,26 +5,33 @@
     {
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h5>@v.Date</h5>
-                <p>Промена на дози на следниве вакцини:</p>
+                <h5><b>@v.Date</b></h5>
             </div>
             <div class="panel-body">
                 <ul class="list-group list-group-flush">
                     @if (v.AstraZenecaChange > 0)
                     {
-                        <li class="list-group-item">AstraZeneca: +@v.AstraZenecaChange</li>
+                        <li class="list-group-item">
+                            <b>AstraZeneca:</b> +@v.AstraZenecaChange
+                        </li>
                     }
                     @if (v.PfizerChange > 0)
                     {
-                        <li class="list-group-item">Pfizer: +@v.PfizerChange</li>
+                        <li class="list-group-item">
+                            <b>Pfizer:</b> +@v.PfizerChange
+                        </li>
                     }
                     @if (v.SputnikChange > 0)
                     {
-                        <li class="list-group-item">Sputnik: +@v.SputnikChange</li>
+                        <li class="list-group-item">
+                            <b>Sputnik:</b> +@v.SputnikChange
+                        </li>
                     }
                     @if (v.SinopharmChange > 0)
                     {
-                        <li class="list-group-item">Sinopharm: +@v.SinopharmChange</li>
+                        <li class="list-group-item">
+                            <b>Sinopharm:</b> +@v.SinopharmChange
+                        </li>
                     }
                 </ul>
             </div>

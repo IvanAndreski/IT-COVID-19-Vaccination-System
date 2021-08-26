@@ -2,16 +2,9 @@
 
 @{
     ViewBag.Title = "Закажи Термин";
-    List<string> names = new List<string>();
-    bool canAppoint = false;
-    foreach (var vaccine in ViewBag.ListOfVaccines)
-    {
-        if (vaccine.NumOfDosesAvailable > 0)
-        {
-            canAppoint = true;
-            names.Add(vaccine.Name);
-        }
-    }
+
+    bool canAppoint = ViewBag.ViewModel.CanAppoint;
+    var names = ViewBag.ViewModel.AvailableVaccineNameList;
 }
 
 <h2>Закажи термин!</h2>
@@ -69,7 +62,7 @@
     <tbody>
         @{
             int i = 1;
-            foreach (var vaccine in ViewBag.ListOfVaccines)
+            foreach (var vaccine in ViewBag.ViewModel.VaccineList)
             {
                 <tr>
                     <th scope="row">@i</th>

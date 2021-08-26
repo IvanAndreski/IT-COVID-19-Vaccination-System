@@ -39,7 +39,7 @@
                                 }
                             }
                             <td>@vac</td>
-                            @if (User.IsInRole("User"))
+                            @if (User.IsInRole("User") || User.IsInRole("Administrator"))
                             {
                                 <td><a href="Appointment/Delete?aNum=@m.AppointmentNum" class="btn btn-danger" style="color: white; text-decoration: none" onclick="return confirm('Дали сте сигурни?');">Откажи термин</a></td>
                             }

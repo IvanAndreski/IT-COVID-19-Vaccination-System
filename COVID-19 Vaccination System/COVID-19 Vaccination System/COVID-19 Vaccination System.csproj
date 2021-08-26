@@ -207,6 +207,7 @@
     <Compile Include="Models\AppointmentContext.cs" />
     <Compile Include="Models\AppointmentModel.cs" />
     <Compile Include="Models\ChangeInVaccinesNewsModel.cs" />
+    <Compile Include="Models\CreateAppointmentViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\NewsContext.cs" />
@@ -522,6 +523,7 @@
     <Content Include="Views\News\Index.cshtml" />
     <Content Include="Views\News\_ChangeInVaccinesNewsPartial.cshtml" />
     <Content Include="Views\News\_VaccinationNewsPartial.cshtml" />
+    <Content Include="Views\News\_AvailableVaccinesPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -9,5 +9,6 @@ namespace COVID_19_Vaccination_System.Models
     {
         public List<ChangeInVaccinesNewsModel> ChangeInVaccinesNewsList { get; set; }
         public List<VaccinationsNewsModel> VaccinationsNewsList { get; set; }
+        public List<VaccineModel> AvailableVaccineList { get; set; }
     }
 }

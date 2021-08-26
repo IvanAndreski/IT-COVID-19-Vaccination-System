@@ -13,6 +13,7 @@ namespace COVID_19_Vaccination_System.Controllers
     public class NewsController : Controller
     {
         private NewsContext dbNews = new NewsContext();
+        private AppointmentContext dbAppointment = new AppointmentContext();
 
         // GET: News
         public ActionResult Index()
@@ -20,6 +21,7 @@ namespace COVID_19_Vaccination_System.Controllers
             NewsViewModel model = new NewsViewModel();
             model.ChangeInVaccinesNewsList = dbNews.ChangeInVaccinesNews.ToList();
             model.VaccinationsNewsList = dbNews.VaccinationsNews.ToList();
+            model.AvailableVaccineList = dbAppointment.Vaccines.ToList();
 
             model.ChangeInVaccinesNewsList.Reverse();
             model.VaccinationsNewsList.Reverse();
