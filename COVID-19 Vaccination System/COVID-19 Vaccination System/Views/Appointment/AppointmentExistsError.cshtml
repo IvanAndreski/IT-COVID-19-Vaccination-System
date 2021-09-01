@@ -1,0 +1,48 @@
+﻿@model IEnumerable<COVID_19_Vaccination_System.Models.AppointmentModel>
+
+@{
+    ViewBag.Title = "Грешка";
+}
+
+<h2>Корисникот веќе има закажано термин</h2>
+
+<div>
+    <hr />
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Корисник</th>
+                <th scope="col">Датум</th>
+                <th scope="col">Вакцина</th>
+                <th scope="col">Вакцинација/Ревакцинација</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var m in Model)
+                {
+                    <tr>
+                        <td>@m.EmailOfUser</td>
+                        <td>@m.Date</td>
+                        <td>@m.NameOfVaccine</td>
+                        @{
+                            string vac = "";
+                            if (m.AppointmentNum == 1)
+                            {
+                                vac = "Вакцинација";
+                            }
+                            else
+                            {
+                                vac = "Ревакцинација";
+                            }
+                        }
+                        <td>@vac</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+<div>
+    @Html.ActionLink("Дома", "Index", "Home", null, new { @class = "btn btn-info", style = "color: white; text-decoration:none;" })
+</div>

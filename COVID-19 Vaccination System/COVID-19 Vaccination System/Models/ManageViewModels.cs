@@ -28,14 +28,14 @@ namespace COVID_19_Vaccination_System.Models
     public class SetPasswordViewModel
     {
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "{0} мора да содржи барем {2} карактери.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "New password")]
+        [Display(Name = "Нова Лозинка")]
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm new password")]
-        [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
+        [Display(Name = "Потврди нова лозинка")]
+        [Compare("NewPassword", ErrorMessage = "Новата лозинка и потврдата не се еднакви.")]
         public string ConfirmPassword { get; set; }
     }
 
@@ -43,18 +43,18 @@ namespace COVID_19_Vaccination_System.Models
     {
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Current password")]
+        [Display(Name = "Сегашна лозинка")]
         public string OldPassword { get; set; }
 
         [Required]
-        [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
+        [StringLength(100, ErrorMessage = "{0} мора да содржи барем {2} карактери.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "New password")]
+        [Display(Name = "Нова лозинка")]
         public string NewPassword { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm new password")]
-        [Compare("NewPassword", ErrorMessage = "The new password and confirmation password do not match.")]
+        [Display(Name = "Потвррди нова лознка")]
+        [Compare("NewPassword", ErrorMessage = "Новата лозинка и потврдата не се еднакви.")]
         public string ConfirmPassword { get; set; }
     }
 
@@ -62,19 +62,19 @@ namespace COVID_19_Vaccination_System.Models
     {
         [Required]
         [Phone]
-        [Display(Name = "Phone Number")]
+        [Display(Name = "Телефонски број")]
         public string Number { get; set; }
     }
 
     public class VerifyPhoneNumberViewModel
     {
         [Required]
-        [Display(Name = "Code")]
+        [Display(Name = "Код")]
         public string Code { get; set; }
 
         [Required]
         [Phone]
-        [Display(Name = "Phone Number")]
+        [Display(Name = "Телефонски број")]
         public string PhoneNumber { get; set; }
     }
 
@@ -82,5 +82,22 @@ namespace COVID_19_Vaccination_System.Models
     {
         public string SelectedProvider { get; set; }
         public ICollection<System.Web.Mvc.SelectListItem> Providers { get; set; }
+    }
+
+    public class EditUserRoleViewModel
+    {
+        [Required(ErrorMessage = "Полето за email не смее да е празно!")]
+        [EmailAddress(ErrorMessage = "Невалиден email!")]
+        [Display(Name = "Email")]
+        public string Email { get; set; }
+
+        [Display(Name = "Улоги")]
+        public readonly List<string> Roles = new List<string>() {
+            "Administrator",
+            "Doctor",
+            "User"
+        };
+
+        public string SelectedRole { get; set; }
     }
 }

@@ -1,0 +1,20 @@
+﻿@model IEnumerable<COVID_19_Vaccination_System.Models.VaccineModel>
+
+@foreach (var v in Model)
+{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h5><b>@v.Name</b></h5>
+        </div>
+        <div class="panel-body">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <b>Дози:</b> @v.NumOfDosesAvailable
+                </li>
+                <li class="list-group-item">
+                    <b>Време помеѓу прва ии втора доза:</b> @v.TimeBetweenDoses
+                </li>
+            </ul>
+        </div>
+    </div>
+}

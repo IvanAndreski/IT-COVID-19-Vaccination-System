@@ -1,0 +1,40 @@
+﻿@model IEnumerable<COVID_19_Vaccination_System.Models.ChangeInVaccinesNewsModel>
+
+@{
+    foreach (var v in Model)
+    {
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h5><b>@v.Date</b></h5>
+            </div>
+            <div class="panel-body">
+                <ul class="list-group list-group-flush">
+                    @if (v.AstraZenecaChange > 0)
+                    {
+                        <li class="list-group-item">
+                            <b>AstraZeneca:</b> +@v.AstraZenecaChange
+                        </li>
+                    }
+                    @if (v.PfizerChange > 0)
+                    {
+                        <li class="list-group-item">
+                            <b>Pfizer:</b> +@v.PfizerChange
+                        </li>
+                    }
+                    @if (v.SputnikChange > 0)
+                    {
+                        <li class="list-group-item">
+                            <b>Sputnik:</b> +@v.SputnikChange
+                        </li>
+                    }
+                    @if (v.SinopharmChange > 0)
+                    {
+                        <li class="list-group-item">
+                            <b>Sinopharm:</b> +@v.SinopharmChange
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    }
+}

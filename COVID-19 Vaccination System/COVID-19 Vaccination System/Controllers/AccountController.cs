@@ -9,6 +9,9 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using COVID_19_Vaccination_System.Models;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Web.Security;
 
 namespace COVID_19_Vaccination_System.Controllers
 {
@@ -22,7 +25,7 @@ namespace COVID_19_Vaccination_System.Controllers
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -34,9 +37,9 @@ namespace COVID_19_Vaccination_System.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -120,7 +123,7 @@ namespace COVID_19_Vaccination_System.Controllers
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
             // You can configure the account lockout settings in IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -132,6 +135,50 @@ namespace COVID_19_Vaccination_System.Controllers
                     ModelState.AddModelError("", "Invalid code.");
                     return View(model);
             }
+        }
+
+        //
+        // GET: /Account/EditUserRole
+        [Authorize(Roles = "Administrator")]
+        public ActionResult EditUserRole()
+        {
+            var model = new EditUserRoleViewModel();
+
+            return View(model);
+        }
+
+        //
+        // POST: /Account/EditUserRole
+        [HttpPost]
+        [Authorize(Roles = "Administrator")]
+        public ActionResult EditUserRole(EditUserRoleViewModel model)
+        {
+            if (model.Email == null)
+            {
+                return View(model);
+            }
+
+            var email = model.Email;
+            var user = UserManager.FindByEmail(email);
+
+            if (user == null)
+            {
+                return View(model);
+            }
+
+            var roles = UserManager.GetRoles(user.Id);
+            UserManager.RemoveFromRoles(user.Id, roles.ToArray());
+            UserManager.AddToRole(user.Id, model.SelectedRole);
+
+            if (User.Identity.Name == email)
+            {
+                FormsAuthentication.SignOut();
+                Session.Abandon();
+
+                return RedirectToAction("Login", "Account");
+            }
+
+            return RedirectToAction("Index", "Home");
         }
 
         //
@@ -151,17 +198,29 @@ namespace COVID_19_Vaccination_System.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    EMBG = model.EMBG,
+                    DateOfBirth = model.DateOfBirth,
+                    PhoneNumber = model.Number,
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+                    // Add user to default user role
+                    UserManager.AddToRole(user.Id, "User");
 
                     return RedirectToAction("Index", "Home");
                 }

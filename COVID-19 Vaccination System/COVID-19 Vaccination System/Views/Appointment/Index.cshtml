@@ -1,0 +1,24 @@
+﻿@model IEnumerable<COVID_19_Vaccination_System.Models.AppointmentModel>
+
+@{
+    ViewBag.Title = "Мои термини";
+}
+
+<h2>Термини на корисник: @User.Identity.Name</h2>
+
+@{
+    if (Model.Count() == 0)
+    {
+        <hr />
+        <h3>Немате закажано термин, дали сакате да закажете?</h3>
+        <div>
+            @Html.ActionLink("Закажи", "Create", "Appointment", null, new { @class = "btn btn-info", style = "color: white; text-decoration:none;" })
+            @Html.ActionLink("Откажи", "Index", "Home", null, new { @class = "btn btn-info", style = "color: white; text-decoration:none;" })
+        </div>
+    }
+    else
+    {
+        @Html.Partial("_AppointmentsOfUserPartial", Model);
+    }
+}
+

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<COVID_19_Vaccination_System.Models.VaccineModel>
+
+@{
+    ViewBag.Title = "Променете број на достапни вакцини";
+}
+
+<h2>Достапни вакцини</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Име на вакцина</th>
+            <th scope="col">Достапни количини</th>
+            <th scope="col">Денови помеѓу две дози</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int i = 1;
+            foreach (var vaccine in Model)
+            {
+                <tr>
+                    <th scope="row">@i</th>
+                    <td>@vaccine.Name</td>
+                    <td>@vaccine.NumOfDosesAvailable</td>
+                    <td>@vaccine.TimeBetweenDoses</td>
+                    <td>@Html.ActionLink("Промени количина", "Edit", "Vaccine", new { param = vaccine.Name }, null)</td>
+                </tr>
+                i++;
+            }
+        }
+    </tbody>
+</table>
+<hr/>
+
+<div class="btn btn-info">
+    @Html.ActionLink("Дома", "Index", "Home", null, new { style = "color: white; text-decoration:none;" })
+</div>
+

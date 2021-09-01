@@ -1,0 +1,15 @@
+﻿@model IEnumerable<COVID_19_Vaccination_System.Models.VaccinationsNewsModel>
+
+@{
+    foreach (var v in Model)
+    {
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <b>@v.Day.ToShortDateString()</b>
+            </div>
+            <div class="panel-body">
+                <b>На ден @v.Day.ToShortDateString() беа вакцинирани:</b> @v.Vaccinations граѓани.
+            </div>
+        </div>
+    }
+}

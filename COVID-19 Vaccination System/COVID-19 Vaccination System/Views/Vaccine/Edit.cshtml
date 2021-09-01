@@ -1,0 +1,47 @@
+﻿@model COVID_19_Vaccination_System.Models.VaccineEditViewModel
+@{
+    ViewBag.Title = "Променете број на достапни вакцини";
+}
+
+<h2>Промени количина за @Model.Vaccine.Name</h2>
+<br />
+
+@using (Html.BeginForm("Edit", "Vaccine", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Vaccine.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Vaccine.Name, htmlAttributes: new { @class = "form-control control-label col-md-2", @readonly = "true" })
+            </div>
+        </div>
+
+        @Html.HiddenFor(model => model.Vaccine.TimeBetweenDoses, htmlAttributes: new { @class = "form-control control-label col-md-2", @readonly = "true" })
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Vaccine.NumOfDosesAvailable, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Vaccine.NumOfDosesAvailable, htmlAttributes: new { @class = "form-control control-label col-md-2", @readonly = "true" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NewDoses, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NewDoses, new { htmlAttributes = new { @class = "form-control control-label col-md-2", @min = "1" } })
+                @Html.ValidationMessageFor(model => model.NewDoses, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Зачувај" class="btn btn-success" />
+                @Html.ActionLink("Откажи", "Index", "Home", null, new { @class = "btn btn-danger" })
+            </div>
+        </div>
+    </div>
+}
+
