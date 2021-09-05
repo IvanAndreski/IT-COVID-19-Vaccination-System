@@ -8,14 +8,21 @@
     else
     {
         <p class="lead">Заштити се ти и твоите најблиски. Вакцинирај се денес!</p>
-        <button class="btn btn-primary btn-lg">
-            @Html.ActionLink("Регистрација", "Register", "Account", null, new { style = "color: white; text-decoration:none;" })
-        </button>
-        <button class="btn btn-primary btn-lg">
-            @Html.ActionLink("Најавете се", "Login", "Account", null, new { style = "color: white; text-decoration:none;" })
-        </button>
+        @Html.ActionLink("Регистрација", "Register", "Account", null, new { @class = "btn btn-primary btn-lg marg", style = "color: white; text-decoration:none;" })
+        @Html.ActionLink("Најавете се", "Login", "Account", null, new { @class = "btn btn-primary btn-lg marg", style = "color: white; text-decoration:none;" })
+
     }
 
-    @Html.ActionLink("Новости", "Index", "News", null, htmlAttributes: new { @class = "btn btn-info btn-lg" })
+    @Html.ActionLink("Новости", "Index", "News", null, htmlAttributes: new { @class = "btn btn-info btn-lg inf" })
 
 </div>
+
+<style>
+    .marg {
+        margin-right: 5px;
+    }
+
+    .inf {
+        margin-left: -5px;
+    }
+</style>

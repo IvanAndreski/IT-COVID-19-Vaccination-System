@@ -6,7 +6,7 @@
         <div class="panel-body">
             <ul style="list-style-type: none; padding-left: 0; margin-top: 15px">
                 <li>
-                    <button class="btn btn-info kopce">@Html.ActionLink("Денешни термини", "AppointmentsToday", "Appointment", null, new { style = "color: white; text-decoration:none;" })</button>
+                    @Html.ActionLink("Денешни термини", "AppointmentsToday", "Appointment", null, new { @class = "btn btn-info kopce", style = "color: white; text-decoration:none;" })
                 </li>
             </ul>
         </div>
