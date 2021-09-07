@@ -1,0 +1,9 @@
+// Appointment Context
+1. Enable-Migrations -ContextTypeName AppointmentContext -MigrationsDirectory Migrations\AppointmentContext
+2. Add-Migration -ConfigurationTypeName COVID_19_Vaccination_System.Migrations.AppointmentContext.Configuration "InitialDatabaseCreation"
+3. Update-Database -ConfigurationTypeName COVID_19_Vaccination_System.Migrations.AppointmentContext.Configuration
+
+// News Context
+1. Enable-Migrations -ContextTypeName NewsContext -MigrationsDirectory Migrations\NewsContext
+2. Add-Migration -ConfigurationTypeName COVID_19_Vaccination_System.Migrations.NewsContext.Configuration "InitialDatabaseCreation"
+3. Update-Database -ConfigurationTypeName COVID_19_Vaccination_System.Migrations.NewsContext.Configuration
