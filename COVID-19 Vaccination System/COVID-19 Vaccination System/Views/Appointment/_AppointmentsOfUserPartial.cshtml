@@ -23,39 +23,58 @@
             @{
                 foreach (var m in Model)
                 {
-                        <tr>
-                            <td>@m.EmailOfUser</td>
-                            <td>@m.Date</td>
-                            <td>@m.NameOfVaccine</td>
-                            @{
-                                string vac = "";
-                                if (m.AppointmentNum == 1)
+                    <tr>
+                        <td>@m.EmailOfUser</td>
+                        <td>@m.Date</td>
+                        <td>@m.NameOfVaccine</td>
+                        @{
+                            string vac = "";
+                            if (m.AppointmentNum == 1)
+                            {
+                                vac = "Вакцинација";
+                            }
+                            else
+                            {
+                                vac = "Ревакцинација";
+                            }
+                        }
+                        <td>@vac</td>
+                        @if (m.Date.Date >= DateTime.Today.Date)
+                        {
+                            if (User.IsInRole("User") || User.IsInRole("Administrator"))
+                            {
+                                if (m.Confirmed == true)
                                 {
-                                    vac = "Вакцинација";
+                                    <td class="text-success"><b>Потврден</b></td>
                                 }
                                 else
                                 {
-                                    vac = "Ревакцинација";
+                                    <td>
+                                        <a href="Appointment/Delete?aNum=@m.AppointmentNum" class="btn btn-danger" style="color: white; text-decoration: none" onclick="return confirm('Дали сте сигурни?');">Откажи термин</a>
+                                    </td>
                                 }
                             }
-                            <td>@vac</td>
-                            @if (User.IsInRole("User") || User.IsInRole("Administrator"))
+                        }
+                        else
+                        {
+                            if (User.IsInRole("User") || User.IsInRole("Administrator"))
                             {
-                                <td><a href="Appointment/Delete?aNum=@m.AppointmentNum" class="btn btn-danger" style="color: white; text-decoration: none" onclick="return confirm('Дали сте сигурни?');">Откажи термин</a></td>
+                                <td class="text-danger"><b>Пропуштен термин</b></td>
                             }
-                            else if (User.IsInRole("Doctor"))
+                        }
+                        @if (User.IsInRole("Doctor"))
+                        {
+                            if (m.Confirmed)
                             {
-                                if (m.Confirmed)
-                                {
-                                    <td><span class="btn btn-success" style="color: white; text-decoration: none">Потврден</span></td>
-                                }
-                                else
-                                {
-                                    <td><a href="Confirm?aNum=@m.AppointmentNum&email=@m.EmailOfUser" class="btn btn-info" style="color: white; text-decoration: none" onclick="return confirm('Дали сте сигурни?');">Потврди термин</a></td>
-                                }
+                                <td class="text-success"><b>Потврден</b></td>
                             }
+                            else
+                            {
+                                <td><a href="Confirm?aNum=@m.AppointmentNum&email=@m.EmailOfUser" class="btn btn-info" style="color: white; text-decoration: none" onclick="return confirm('Дали сте сигурни?');">Потврди термин</a></td>
+                            }
+                        }
 
-                        </tr>
+                    </tr>
                 }
             }
         </tbody>

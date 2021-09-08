@@ -11,6 +11,7 @@ namespace COVID_19_Vaccination_System.Models {
 
         [Key]
         [DataType(DataType.DateTime)]
+        [Display(Name = "Дата")]
         public DateTime Date { get; set; }
 
         [Required]

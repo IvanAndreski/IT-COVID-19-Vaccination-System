@@ -48,7 +48,10 @@ namespace COVID_19_Vaccination_System.Controllers
                 .ToList();
             if (a.Count() > 0)
             {
-                return AppointmentExistsError(a);
+                if (DateTime.Compare(a[0].Date.Date, DateTime.Today.Date) > 0)
+                {
+                    return AppointmentExistsError(a);
+                }
             }
 
             var model = new CreateAppointmentViewModel();
@@ -59,6 +62,13 @@ namespace COVID_19_Vaccination_System.Controllers
                 .ToList();
             if (model.AvailableVaccineNameList.Count > 0)
                 model.CanAppoint = true;
+            model.AvailableDays = dbAppointments.VaccinationsAtDay
+                .Where(x => DateTime.Compare(DbFunctions.TruncateTime(x.Day).Value,
+                    DbFunctions.TruncateTime(DateTime.Today).Value) > 0)
+                .Where(x => x.NumVaccinationsAtDay < MAX_VACCINATIONS_PER_DAY)
+                .Select(x => x.Day)
+                .Take(90)
+                .ToList();
             ViewBag.ViewModel = model;
 
             return View();
@@ -73,12 +83,22 @@ namespace COVID_19_Vaccination_System.Controllers
         {
             model.EmailOfUser = User.Identity.Name;
 
-            // Find first day in the database that has vaccination appointmennts less than MAX_VACCINATIONS_PER_DAY
-            var day = dbAppointments.VaccinationsAtDay
-                .FirstOrDefault(x => x.NumVaccinationsAtDay < MAX_VACCINATIONS_PER_DAY &&
-                DateTime.Compare(DbFunctions.TruncateTime(x.Day).Value, DbFunctions.TruncateTime(DateTime.Now).Value) > 0);
-
-            model.Date = day.Day.AddMinutes(day.NumVaccinationsAtDay * 15);
+            // Find last appointment at that day
+            List<DateTime> tempDate = dbAppointments.Appointments
+                .Where(x => DateTime.Compare(DbFunctions.TruncateTime(x.Date).Value,
+                    DbFunctions.TruncateTime(model.Date).Value) == 0)
+                .Select(x => x.Date)
+                .ToList();
+            DateTime d;
+            if(tempDate.Count == 0)
+            {
+                d = model.Date;
+            }
+            else
+            {
+                d = tempDate.Max().AddMinutes(15);
+            }
+            model.Date = d;
             model.AppointmentNum = 1;
             model.Confirmed = false;
             dbAppointments.Appointments.Add(model);
@@ -88,7 +108,10 @@ namespace COVID_19_Vaccination_System.Controllers
             v.NumOfDosesAvailable--;
 
             // Change the number of vaccinations at that day
-            day.NumVaccinationsAtDay++;
+            dbAppointments.VaccinationsAtDay
+                .FirstOrDefault(x => DateTime.Compare(DbFunctions.TruncateTime(x.Day).Value,
+                    DbFunctions.TruncateTime(model.Date).Value) == 0)
+                .NumVaccinationsAtDay++;
 
             dbAppointments.SaveChanges();
 
@@ -104,8 +127,9 @@ namespace COVID_19_Vaccination_System.Controllers
         // GET: Appointment/Delete/
         public ActionResult Delete(int aNum)
         {
-            AppointmentModel model = dbAppointments
-                .Appointments
+            AppointmentModel model = dbAppointments.Appointments
+                .Where(x => DbFunctions.TruncateTime(x.Date) >
+                    DbFunctions.TruncateTime(DateTime.Today))
                 .FirstOrDefault(x => x.AppointmentNum == aNum && x.EmailOfUser == User.Identity.Name);
 
             return Delete(model);
@@ -123,6 +147,13 @@ namespace COVID_19_Vaccination_System.Controllers
                 .Vaccines
                 .FirstOrDefault(x => model.NameOfVaccine == x.Name);
             v.NumOfDosesAvailable++;
+
+            // Remove one slot of vaccinations per day
+            var d = dbAppointments.VaccinationsAtDay
+                .FirstOrDefault(x => DateTime.Compare(
+                    DbFunctions.TruncateTime(x.Day).Value,
+                    DbFunctions.TruncateTime(model.Date).Value) == 0);
+            d.NumVaccinationsAtDay--;
 
             dbAppointments.SaveChanges();
 
@@ -145,7 +176,10 @@ namespace COVID_19_Vaccination_System.Controllers
         // GET: Appointment/Confirm
         public ActionResult Confirm(int aNum, string email)
         {
-            AppointmentModel model = dbAppointments.Appointments.FirstOrDefault(x => x.AppointmentNum == aNum && x.EmailOfUser == email);
+            AppointmentModel model = dbAppointments.Appointments
+                .Where(x => DbFunctions.TruncateTime(x.Date) == 
+                    DbFunctions.TruncateTime(DateTime.Today))
+                .FirstOrDefault(x => x.AppointmentNum == aNum && x.EmailOfUser == email);
 
             return Confirm(model);
         }
@@ -155,27 +189,32 @@ namespace COVID_19_Vaccination_System.Controllers
         public ActionResult Confirm(AppointmentModel model)
         {
             // Remove appontment
-            model.Confirmed = true;
+            var a = dbAppointments.Appointments
+                .FirstOrDefault(x => DateTime.Compare(x.Date, model.Date) == 0);
+            Debug.WriteLine(a.Confirmed);
+            a.Confirmed = true;
 
             // Find vaccinne in database
             var v = dbAppointments.Vaccines.FirstOrDefault(x => x.Name == model.NameOfVaccine);
 
-            // Create second appointment
-            AppointmentModel secondAppointment = new AppointmentModel();
-            secondAppointment.AppointmentNum = 2;
-            secondAppointment.Confirmed = false;
-            secondAppointment.EmailOfUser = model.EmailOfUser;
-            secondAppointment.NameOfVaccine = model.NameOfVaccine;
-            secondAppointment.Date = model.Date.AddDays(v.TimeBetweenDoses);
+            // Create second appointment if first
+            if (model.AppointmentNum == 1)
+            {
+                AppointmentModel secondAppointment = new AppointmentModel();
+                secondAppointment.AppointmentNum = 2;
+                secondAppointment.Confirmed = false;
+                secondAppointment.EmailOfUser = model.EmailOfUser;
+                secondAppointment.NameOfVaccine = model.NameOfVaccine;
+                secondAppointment.Date = model.Date.AddDays(v.TimeBetweenDoses);
 
-            // Add second appointment
-            dbAppointments.Appointments.Add(secondAppointment);
-            dbAppointments.SaveChanges();
+                // Add second appointment
+                dbAppointments.Appointments.Add(secondAppointment);
+                dbAppointments.SaveChanges();
+            }
 
             // Edit news table
             var id = DateTime.Today;
             var news = dbNews.VaccinationsNews.FirstOrDefault(x => x.Day == DateTime.Today);
-            Debug.WriteLine(news.Day);
             if (news != null)
             {
                 news.Vaccinations = news.Vaccinations + 1;
