@@ -23,29 +23,34 @@
             @{
                 foreach (var m in Model)
                 {
-                    <tr>
-                        <td>@m.EmailOfUser</td>
-                        <td>@m.Date</td>
-                        <td>@m.NameOfVaccine</td>
-                        @{
-                            string vac = "";
-                            if (m.AppointmentNum == 1)
-                            {
-                                vac = "Вакцинација";
-                            }
-                            else
-                            {
-                                vac = "Ревакцинација";
-                            }
-                        }
-                        <td>@vac</td>
-                        @if (m.Date.Date >= DateTime.Today.Date)
-                        {
-                            if (User.IsInRole("User") || User.IsInRole("Administrator"))
-                            {
-                                if (m.Confirmed == true)
+                        <tr>
+                            <td>@m.EmailOfUser</td>
+                            <td>@m.Date</td>
+                            <td>@m.NameOfVaccine</td>
+                            @{
+                                string vac = "";
+                                if (m.AppointmentNum == 1)
                                 {
-                                    <td class="text-success"><b>Потврден</b></td>
+                                    vac = "Вакцинација";
+                                }
+                                else
+                                {
+                                    vac = "Ревакцинација";
+                                }
+                            }
+                            <td>@vac</td>
+                            @if (User.IsInRole("User") || User.IsInRole("Administrator"))
+                            {
+                                if (m.Date < DateTime.Now)
+                                {
+                                    if (m.Confirmed == true)
+                                    {
+                                        <td class="text-success"><b>Потврден</b></td>
+                                    }
+                                    else
+                                    {
+                                        <td class="text-danger"><b>Пропуштен термин</b></td>
+                                    }
                                 }
                                 else
                                 {
@@ -54,27 +59,21 @@
                                     </td>
                                 }
                             }
-                        }
-                        else
-                        {
-                            if (User.IsInRole("User") || User.IsInRole("Administrator"))
+                            @if (User.IsInRole("Doctor"))
                             {
-                                <td class="text-danger"><b>Пропуштен термин</b></td>
+                                if (m.Date.Date == DateTime.Today.Date)
+                                {
+                                    if (m.Confirmed)
+                                    {
+                                        <td class="text-success"><b>Потврден</b></td>
+                                    }
+                                    else
+                                    {
+                                        <td><a href="Confirm?aNum=@m.AppointmentNum&email=@m.EmailOfUser" class="btn btn-info" style="color: white; text-decoration: none" onclick="return confirm('Дали сте сигурни?');">Потврди термин</a></td>
+                                    }
+                                }
                             }
-                        }
-                        @if (User.IsInRole("Doctor"))
-                        {
-                            if (m.Confirmed)
-                            {
-                                <td class="text-success"><b>Потврден</b></td>
-                            }
-                            else
-                            {
-                                <td><a href="Confirm?aNum=@m.AppointmentNum&email=@m.EmailOfUser" class="btn btn-info" style="color: white; text-decoration: none" onclick="return confirm('Дали сте сигурни?');">Потврди термин</a></td>
-                            }
-                        }
-
-                    </tr>
+                        </tr>
                 }
             }
         </tbody>
