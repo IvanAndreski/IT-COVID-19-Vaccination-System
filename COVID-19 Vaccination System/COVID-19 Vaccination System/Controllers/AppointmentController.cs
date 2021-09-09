@@ -18,7 +18,7 @@ namespace COVID_19_Vaccination_System.Controllers
         private NewsContext dbNews = new NewsContext();
 
         // Constants
-        private static readonly int MAX_VACCINATIONS_PER_DAY = 50;
+        private static int MAX_VACCINATIONS_PER_DAY = 50;
         private static DateTime FIRST_DAY_OF_VACCINATION = DateTime.Parse("Sep 1, 2021");
 
         // GET: Appointment
@@ -125,6 +125,7 @@ namespace COVID_19_Vaccination_System.Controllers
         }
 
         // GET: Appointment/Delete/
+        [Authorize(Roles = "User,Administrator")]
         public ActionResult Delete(int aNum)
         {
             AppointmentModel model = dbAppointments.Appointments
@@ -174,6 +175,7 @@ namespace COVID_19_Vaccination_System.Controllers
         }
 
         // GET: Appointment/Confirm
+        [Authorize(Roles = "Doctor")]
         public ActionResult Confirm(int aNum, string email)
         {
             AppointmentModel model = dbAppointments.Appointments
