@@ -526,10 +526,12 @@
     <Content Include="Views\News\_AvailableVaccinesPartial.cshtml" />
     <Content Include="Views\Home\_WelcomePartial.cshtml" />
     <Content Include="Views\Home\_LoggedInUserPartial.cshtml" />
-    <Content Include="Views\Home\_NotLoggedInUserPartial.cshtml" />
+    <Content Include="Views\Home\_WhyVaccinatePartial.cshtml" />
     <Content Include="Views\Home\_DoctorFunctionsPartial.cshtml" />
     <Content Include="Views\Home\_AdminFunctionsPartial.cshtml" />
     <Content Include="Views\Appointment\UserIsDoctorError.cshtml" />
+    <Content Include="Views\Appointment\DeleteSecondAppointmentError.cshtml" />
+    <Content Include="Views\Appointment\AppointmentDateNotAvailable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -3,7 +3,7 @@
 
     @if (User.Identity.IsAuthenticated)
     {
-        <p class="lead">Добредојде: @User.Identity.Name</p>
+        <p class="lead">Добредојде: @ViewBag.FullName</p>
     }
     else
     {

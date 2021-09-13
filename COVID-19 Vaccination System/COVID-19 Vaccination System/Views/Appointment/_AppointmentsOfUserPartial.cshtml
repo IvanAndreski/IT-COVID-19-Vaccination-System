@@ -41,20 +41,38 @@
                             <td>@vac</td>
                             @if (User.IsInRole("User") || User.IsInRole("Administrator"))
                             {
-                                <td><a href="Appointment/Delete?aNum=@m.AppointmentNum" class="btn btn-danger" style="color: white; text-decoration: none" onclick="return confirm('Дали сте сигурни?');">Откажи термин</a></td>
-                            }
-                            else if (User.IsInRole("Doctor"))
-                            {
-                                if (m.Confirmed)
+                                if (m.Date < DateTime.Now)
                                 {
-                                    <td><span class="btn btn-success" style="color: white; text-decoration: none">Потврден</span></td>
+                                    if (m.Confirmed == true)
+                                    {
+                                        <td class="text-success"><b>Потврден</b></td>
+                                    }
+                                    else
+                                    {
+                                        <td class="text-danger"><b>Пропуштен термин</b></td>
+                                    }
                                 }
                                 else
                                 {
-                                    <td><a href="Confirm?aNum=@m.AppointmentNum&email=@m.EmailOfUser" class="btn btn-info" style="color: white; text-decoration: none" onclick="return confirm('Дали сте сигурни?');">Потврди термин</a></td>
+                                    <td>
+                                        <a href="Appointment/Delete?aNum=@m.AppointmentNum" class="btn btn-danger" style="color: white; text-decoration: none" onclick="return confirm('Дали сте сигурни?');">Откажи термин</a>
+                                    </td>
                                 }
                             }
-
+                            @if (User.IsInRole("Doctor"))
+                            {
+                                if (m.Date.Date == DateTime.Today.Date)
+                                {
+                                    if (m.Confirmed)
+                                    {
+                                        <td class="text-success"><b>Потврден</b></td>
+                                    }
+                                    else
+                                    {
+                                        <td><a href="Confirm?aNum=@m.AppointmentNum&email=@m.EmailOfUser" class="btn btn-info" style="color: white; text-decoration: none" onclick="return confirm('Дали сте сигурни?');">Потврди термин</a></td>
+                                    }
+                                }
+                            }
                         </tr>
                 }
             }

@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Грешка";
+}
+
+<h2>Грешка</h2>
+<h5>Во меѓувреме беше закажан последниот слободен термин на ден: @ViewBag.Date Ве молиме обидете се повторно, со одбирање на друг ден.</h5>
+
+<br />
+
+<div>
+    @Html.ActionLink("Обиди се повторно", "Create", "Appointment", null, new { @class = "btn btn-success", style = "color: white; text-decoration:none;" })
+    @Html.ActionLink("Откажи", "Index", "Home", null, new { @class = "btn btn-danger", style = "color: white; text-decoration:none;" })
+</div>
+
