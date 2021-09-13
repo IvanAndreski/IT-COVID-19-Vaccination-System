@@ -48,9 +48,12 @@ namespace COVID_19_Vaccination_System.Controllers
                 .ToList();
             if (a.Count() > 0)
             {
-                if (a[0].Date.Date > DateTime.Today.Date)
+                foreach(var app in a)
                 {
-                    return AppointmentExistsError(a);
+                    if (app.Date.Date > DateTime.Today.Date)
+                    {
+                        return AppointmentExistsError(a);
+                    }
                 }
             }
 
@@ -83,6 +86,15 @@ namespace COVID_19_Vaccination_System.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(CreateAppointmentViewModel viewModel)
         {
+            // Check if date is still available
+            var app = dbAppointments.VaccinationsAtDay
+                .FirstOrDefault(x => DbFunctions.TruncateTime(x.Day) ==
+                    DbFunctions.TruncateTime(viewModel.Appointment.Date));
+            if(app.NumVaccinationsAtDay >= MAX_VACCINATIONS_PER_DAY)
+            {
+                return View("AppointmentDateNotAvailable");
+            }
+
             AppointmentModel model = viewModel.Appointment;
             model.EmailOfUser = User.Identity.Name;
 

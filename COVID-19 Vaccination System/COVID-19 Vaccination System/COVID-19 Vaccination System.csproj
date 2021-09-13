@@ -531,6 +531,7 @@
     <Content Include="Views\Home\_AdminFunctionsPartial.cshtml" />
     <Content Include="Views\Appointment\UserIsDoctorError.cshtml" />
     <Content Include="Views\Appointment\DeleteSecondAppointmentError.cshtml" />
+    <Content Include="Views\Appointment\AppointmentDateNotAvailable.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

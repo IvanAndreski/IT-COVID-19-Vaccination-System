@@ -4,21 +4,21 @@
 
 @Html.Partial("_WelcomePartial")
 
-@Html.Partial("_WhyVaccinatePartial");
+@Html.Partial("_WhyVaccinatePartial")
 
 @if (User.Identity.IsAuthenticated)
 {
-    @Html.Partial("_LoggedInUserPartial");
+    @Html.Partial("_LoggedInUserPartial")
 }
 
 <div class="row">
     @if (User.IsInRole("Administrator"))
     {
-        @Html.Partial("_AdminFunctionsPartial");
+        @Html.Partial("_AdminFunctionsPartial")
     }
     else if (User.IsInRole("Doctor"))
     {
-        @Html.Partial("_DoctorFunctionsPartial");
+        @Html.Partial("_DoctorFunctionsPartial")
     }
 </div>
 
