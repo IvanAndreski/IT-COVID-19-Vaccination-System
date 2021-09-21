@@ -228,3 +228,118 @@ D:\GitHub\IT-COVID-19-Vaccination-System\COVID-19 Vaccination System\COVID-19 Va
 D:\GitHub\IT-COVID-19-Vaccination-System\COVID-19 Vaccination System\COVID-19 Vaccination System\obj\Debug\COVID-19 Vaccination System.csproj.CopyComplete
 D:\GitHub\IT-COVID-19-Vaccination-System\COVID-19 Vaccination System\COVID-19 Vaccination System\obj\Debug\COVID-19 Vaccination System.dll
 D:\GitHub\IT-COVID-19-Vaccination-System\COVID-19 Vaccination System\COVID-19 Vaccination System\obj\Debug\COVID-19 Vaccination System.pdb
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\COVID-19 Vaccination System.dll.config
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\COVID-19 Vaccination System.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\COVID-19 Vaccination System.pdb
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\csc.exe
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\csc.exe.config
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\csc.rsp
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\csi.exe
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\csi.exe.config
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\csi.rsp
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\Microsoft.CodeAnalysis.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\Microsoft.CSharp.Core.targets
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\Microsoft.Managed.Core.targets
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\Microsoft.VisualBasic.Core.targets
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\Microsoft.Win32.Primitives.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\System.AppContext.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\System.Collections.Immutable.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\System.Console.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\System.Diagnostics.DiagnosticSource.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\System.Diagnostics.StackTrace.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\System.Globalization.Calendars.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\System.IO.Compression.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\System.IO.Compression.ZipFile.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\System.IO.FileSystem.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\System.IO.FileSystem.Primitives.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\System.Net.Http.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\System.Net.Sockets.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\System.Reflection.Metadata.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\System.Runtime.InteropServices.RuntimeInformation.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\System.Security.Cryptography.Algorithms.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\System.Security.Cryptography.Encoding.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\System.Security.Cryptography.Primitives.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\System.Text.Encoding.CodePages.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\System.Threading.Tasks.Extensions.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\System.ValueTuple.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\System.Xml.ReaderWriter.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\System.Xml.XmlDocument.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\System.Xml.XPath.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\System.Xml.XPath.XDocument.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\vbc.exe
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\vbc.exe.config
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\vbc.rsp
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\VBCSCompiler.exe
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\roslyn\VBCSCompiler.exe.config
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\Antlr3.Runtime.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\EntityFramework.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\EntityFramework.SqlServer.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\Microsoft.AspNet.Identity.Core.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\Microsoft.AspNet.Identity.Owin.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\Microsoft.Owin.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\Microsoft.Owin.Host.SystemWeb.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\Microsoft.Owin.Security.Cookies.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\Microsoft.Owin.Security.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\Microsoft.Owin.Security.Facebook.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\Microsoft.Owin.Security.Google.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\Microsoft.Owin.Security.OAuth.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\Microsoft.Owin.Security.Twitter.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\Microsoft.Web.Infrastructure.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\Newtonsoft.Json.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\Owin.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\System.Web.Helpers.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\System.Web.Mvc.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\System.Web.Optimization.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\System.Web.Razor.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\System.Web.WebPages.Deployment.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\System.Web.WebPages.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\System.Web.WebPages.Razor.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\WebGrease.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\EntityFramework.xml
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\EntityFramework.SqlServer.xml
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\System.Web.Helpers.xml
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\System.Web.Mvc.xml
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\System.Web.Optimization.xml
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\System.Web.Razor.xml
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\System.Web.WebPages.xml
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\System.Web.WebPages.Deployment.xml
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\System.Web.WebPages.Razor.xml
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\Newtonsoft.Json.xml
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\Antlr3.Runtime.pdb
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\Microsoft.AspNet.Identity.Core.xml
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\Microsoft.AspNet.Identity.Owin.xml
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\Microsoft.Owin.xml
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\Microsoft.Owin.Host.SystemWeb.xml
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\Microsoft.Owin.Security.xml
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\Microsoft.Owin.Security.Facebook.xml
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\Microsoft.Owin.Security.Cookies.xml
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\Microsoft.Owin.Security.Google.xml
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\Microsoft.Owin.Security.Twitter.xml
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\Microsoft.Owin.Security.OAuth.xml
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\obj\Debug\COVID-19 Vaccination System.csproj.AssemblyReference.cache
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\obj\Debug\COVID_19_Vaccination_System.Migrations.InitialCreate.resources
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\obj\Debug\COVID_19_Vaccination_System.Migrations.UserDetails.resources
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\obj\Debug\COVID_19_Vaccination_System.Migrations.Number.resources
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\obj\Debug\COVID_19_Vaccination_System.Migrations.Appointment.resources
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\obj\Debug\COVID_19_Vaccination_System.Migrations.AppointmentContext.InitialDatabaseCreation.resources
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\obj\Debug\COVID_19_Vaccination_System.Migrations.NewsContext.InitialDatabaseCreation.resources
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\obj\Debug\COVID-19 Vaccination System.csproj.GenerateResource.cache
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\obj\Debug\COVID-19 Vaccination System.csproj.CoreCompileInputs.cache
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\obj\Debug\COVID-19 Vaccination System.csproj.CopyComplete
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\obj\Debug\COVID-19 Vaccination System.dll
+F:\Ivan\documents\Skolo\Finki\semestar_4\IT\Project\COVID-19 Vaccination System\COVID-19 Vaccination System\obj\Debug\COVID-19 Vaccination System.pdb

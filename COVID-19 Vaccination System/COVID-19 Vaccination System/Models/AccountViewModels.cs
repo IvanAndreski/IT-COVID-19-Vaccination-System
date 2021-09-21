@@ -64,7 +64,7 @@ namespace COVID_19_Vaccination_System.Models {
 
         [Required(ErrorMessage = "Полето за лозинка е задолжително")]
         [StringLength(100, ErrorMessage = "{0} мора да содржи барем {2} карактери.", MinimumLength = 6)]
-        [DataType(DataType.Password)]
+        [DataType(DataType.Password, ErrorMessage = "Лозинката мора да се составена од голема буква, бројка и специјален знак")]
         [Display(Name = "Лозинка")]
         public string Password { get; set; }
 
@@ -106,11 +106,11 @@ namespace COVID_19_Vaccination_System.Models {
 
         [Required(ErrorMessage = "Полето за лозинка е задолжително")]
         [StringLength(100, ErrorMessage = "{0} мора да содржи барем {2} карактери.", MinimumLength = 6)]
-        [DataType(DataType.Password)]
+        [DataType(DataType.Password, ErrorMessage = "Лозинката мора да се составена од голема буква, бројка и специјален знак")]
         [Display(Name = "Лозинка")]
         public string Password { get; set; }
 
-        [DataType(DataType.Password)]
+        [DataType(DataType.Password, ErrorMessage = "Лозинката мора да се составена од голема буква, бројка и специјален знак")]
         [Display(Name = "Потврди Лозинка")]
         [Compare("Password", ErrorMessage = "Лозинката и потврдата не се еднакви")]
         public string ConfirmPassword { get; set; }

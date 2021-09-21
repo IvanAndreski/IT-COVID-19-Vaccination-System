@@ -15,7 +15,7 @@ namespace COVID_19_Vaccination_System.Controllers
 
         public ActionResult Index()
         {
-            
+            Console.WriteLine("Yo");
             if (User.Identity.IsAuthenticated)
             {
                 ApplicationUser user = System.Web.HttpContext
