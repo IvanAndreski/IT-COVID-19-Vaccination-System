@@ -83,7 +83,7 @@ namespace COVID_19_Vaccination_System.Models {
 
         [Required(ErrorMessage = "Полето за матичен број е задолжително")]
         [Display(Name = "Матичен број")]
-        [RegularExpression("^\\d{7}(450|455)\\d{3}", ErrorMessage = "Невалиден матичен број")]
+        [RegularExpression("^\\d{13}", ErrorMessage = "Невалиден матичен број")]
         public string EMBG { get; set; }
 
         [Required(ErrorMessage = "Полето за датум на раѓање е задолжително")]
