@@ -1,2 +1,3 @@
 # IT-COVID-19-Vaccination-System
-Проект по предметот Интернет Технологии, <b>Иван Андрески 191239</b>
+
+.NET 4.6 MVC Application for managing the process of vaccination against COVID-19 
